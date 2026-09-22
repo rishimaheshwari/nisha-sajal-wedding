@@ -85,7 +85,7 @@ a Next link. Small landscape screens can scroll within an oversized slide to
 keep all details accessible. Slide motion is disabled for reduced-motion users.
 
 `assets/ns-monogram.svg` contains the new vector monogram. `event-audio.js`
-manages a user-enabled soundtrack: Jalandhar for Haldi, Naraina for Sangeet, and
+manages a user-enabled soundtrack: Jalandhar for Haldi, Dream Culture for Sangeet, and
 River Flute for the wedding. Music starts only after the invitation or music
 button is tapped, and uses 1.8-second crossfades. Muting persists across scrolling.
 Event audio is loaded only when needed; the original opening track streams.
@@ -117,6 +117,10 @@ The venue now leads directly to the attendance form; the accommodation and
 registry sections have been removed.
 
 Lansdowne Resort names in the event slides and venue heading link to its official
-website in a new tab. `music-samples.html` provides optional softer music previews,
-comparisons with the current tracks, and an 84-second medley with three-second
-crossfades. It does not change the invitation soundtrack.
+website in a new tab. `music-samples.html` now provides two-minute flute previews
+(River Flute and The Sky of our Ancestors) for Haldi, the selected two-minute
+Dream Culture excerpt for Sangeet, and three 90-second wedding alternatives
+(Morning, Canon in D for Two Harps, Dreamer). A 129-second medley previews River
+Flute → Dream Culture → Morning with three-second crossfades. Only the selected
+Sangeet music has been applied to the invitation; Haldi and wedding choices
+remain previews. All previews include visible attribution and full-track links.

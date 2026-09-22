@@ -15,13 +15,14 @@ https://creativecommons.org/licenses/by/4.0/
 
 - Haldi: **Jalandhar**, ISRC USUAN1400018 — sitar, percussion and bass.
   https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1400018
-- Sangeet: **Naraina**, ISRC USUAN1400053 — Bollywood/club-inspired instrumental.
-  https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1400053
+- Sangeet: **Dream Culture**, ISRC USUAN1300046 — piano and percussion.
+  https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1300046
 - Wedding: **River Flute**, ISRC USUAN1900005 — gentle flute and ambient sound.
   https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1900005
 
-Changes: 75-second excerpts, MP3 compression, volume normalization, fade-in and
-fade-out. The website crossfades between the excerpts as each event becomes
+Changes: Haldi and wedding use 75-second excerpts; Sangeet uses a 120-second
+excerpt beginning at 00:10. All use MP3 compression, volume normalization,
+fade-in and fade-out. The website crossfades between the excerpts as each event becomes
 active. A visible Music credits section in the footer provides attribution.
 
 The original invitation doorway video, images, and opening soundtrack from the
@@ -30,8 +31,8 @@ extracted frames from the video supplied by the user.
 
 ## Optional soundtrack audition
 
-`music-samples.html` compares the current recordings with these Kevin MacLeod
-recordings, also licensed under Creative Commons Attribution 4.0:
+Earlier audition assets retain these Kevin MacLeod recordings, also licensed
+under Creative Commons Attribution 4.0:
 
 - **Dhaka**, ISRC USUAN1400003, 00:20–00:50 excerpt.
   https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1400003
@@ -42,4 +43,32 @@ recordings, also licensed under Creative Commons Attribution 4.0:
 
 Changes: 30-second excerpts, volume normalization, fades and MP3 compression.
 The 84-second combined preview uses three-second linear crossfades. These are
-optional audition samples; the invitation's soundtrack remains unchanged.
+archived audition samples. Dream Culture is now the selected Sangeet track.
+
+## Longer flute and wedding audition
+
+The current `music-samples.html` offers these Kevin MacLeod recordings under
+Creative Commons Attribution 4.0: https://creativecommons.org/licenses/by/4.0/
+
+- **River Flute**, ISRC USUAN1900005, 00:30–02:30 excerpt for Haldi.
+  https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1900005
+- **The Sky of our Ancestors**, ISRC USUAN1700056, 00:30–02:30 excerpt for Haldi.
+  https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1700056
+- **Dream Culture**, ISRC USUAN1300046, 00:10–02:10 excerpt, selected for Sangeet.
+  https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1300046
+- **Morning**, ISRC USUAN2300003, 00:05–01:35 excerpt for the wedding.
+  https://incompetech.com/music/royalty-free/index.html?isrc=USUAN2300003
+- **Canon in D for Two Harps**, ISRC USUAN2000015, 00:35–02:05 wedding excerpt.
+  https://incompetech.com/music/royalty-free/index.html?isrc=USUAN2000015
+- **Dreamer**, ISRC USUAN1600043, 00:15–01:45 excerpt for the wedding.
+  https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1600043
+
+Changes: excerpts, volume normalization, fade-in/out and MP3 compression. The
+129-second transition preview combines the first 45 seconds of the prepared
+River Flute, Dream Culture and Morning excerpts with three-second crossfades.
+The live invitation uses Dream Culture for Sangeet; its Haldi and wedding tracks
+remain as listed above until new choices are selected.
+
+The archived `sangeet-music.mp3` remains a 75-second excerpt of **Naraina**, Kevin
+MacLeod, ISRC USUAN1400053, licensed under CC BY 4.0:
+https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1400053

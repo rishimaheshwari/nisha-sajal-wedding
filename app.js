@@ -76,13 +76,13 @@ function updateMusicLabel() {
       ? {
           welcome: "निमंत्रण",
           haldi: "हल्दी · सितार",
-          sangeet: "संगीत · नृत्य",
+          sangeet: "संगीत · पियानो",
           wedding: "विवाह · बाँसुरी",
         }
       : {
           welcome: "Invitation",
           haldi: "Haldi · Sitar",
-          sangeet: "Sangeet · Dance",
+          sangeet: "Sangeet · Piano",
           wedding: "Wedding · Flute",
         };
   musicButton.setAttribute(
