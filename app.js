@@ -277,8 +277,23 @@ const note = document.createElement("p");
 note.className = "text-xs text-muted-foreground";
 form.append(note);
 const rsvpEndpoint = window.WEDDING_CONFIG?.rsvpEndpoint;
+const isWeb3Forms = window.WEDDING_CONFIG?.rsvpProvider === "web3forms";
+const botcheck = document.createElement("input");
+botcheck.type = "checkbox";
+botcheck.name = "botcheck";
+botcheck.tabIndex = -1;
+botcheck.autocomplete = "off";
+botcheck.hidden = true;
+botcheck.setAttribute("aria-hidden", "true");
+form.append(botcheck);
 function updateRsvpAvailability() {
   if (rsvpEndpoint) {
+    if (isWeb3Forms) {
+      note.textContent = language === "hi"
+        ? "आपका उत्तर शादी के आयोजकों को भेजा जाएगा।"
+        : "Your reply will be sent to the wedding organizers.";
+      return;
+    }
     note.textContent = language === "hi"
       ? "उत्तर इस स्थानीय ऐप में सहेजे जाते हैं।"
       : "Recreated site: replies are saved to this local app.";
@@ -295,22 +310,49 @@ function updateRsvpAvailability() {
 updateRsvpAvailability();
 const status = document.createElement("p");
 status.setAttribute("role", "status");
+status.setAttribute("aria-live", "polite");
 form.append(status);
+let submitting = false;
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
-  if (!rsvpEndpoint) return;
+  if (!rsvpEndpoint || submitting || !form.reportValidity()) return;
+  if (botcheck.checked) return;
+  const data = Object.fromEntries(new FormData(form));
+  data.name = data.name.trim();
+  if (!data.name) {
+    status.textContent = language === "hi" ? "कृपया अपना पूरा नाम दर्ज करें।" : "Please enter your full name.";
+    $("[name=name]", form).focus();
+    return;
+  }
+  submitting = true;
   const button = $("[type=submit]", form);
   button.disabled = true;
   button.textContent = language === "hi" ? "भेजा जा रहा है…" : "Sending…";
   status.textContent = "";
   try {
+    const payload = isWeb3Forms ? {
+      access_key: window.WEDDING_CONFIG.accessKey,
+      subject: window.WEDDING_CONFIG.subject,
+      from_name: "Nisha & Sajal Wedding",
+      name: data.name,
+      attending: data.attending,
+      dietary_restrictions: data.diet.trim(),
+      song_request: data.song.trim(),
+      event: "Nisha & Sajal · January 31, 2027",
+      source: "nisha-sajal-wedding",
+      website: location.origin + location.pathname,
+      botcheck: false,
+    } : { name: data.name, attending: data.attending, diet: data.diet, song: data.song };
     const response = await fetch(rsvpEndpoint, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(Object.fromEntries(new FormData(form))),
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify(payload),
     });
-    if (!response.ok)
-      throw new Error("Unable to save your reply. Please try again.");
+    const result = await response.json();
+    if (!response.ok || (isWeb3Forms ? result.success !== true : result.ok !== true))
+      throw new Error(language === "hi"
+        ? "आपका उत्तर नहीं भेजा जा सका। कृपया दोबारा प्रयास करें।"
+        : "Unable to send your reply. Please try again.");
     const card = document.createElement("div");
     card.className = "surface-card mt-9 rounded-sm px-7 py-12 text-center";
     const title = document.createElement("p");
@@ -318,16 +360,23 @@ form.addEventListener("submit", async (e) => {
     title.textContent = translations.thankYou?.[language] || "Thank You";
     const message = document.createElement("p");
     message.className = "mt-5 text-sm text-muted-foreground";
-    message.textContent =
-      language === "hi"
+    message.textContent = isWeb3Forms
+      ? language === "hi"
+        ? "आपका उत्तर प्राप्त हो गया है। हमें बताने के लिए धन्यवाद।"
+        : "Your reply has been received. Thank you for letting us know."
+      : language === "hi"
         ? "आपका उत्तर इस स्थानीय ऐप में सहेज दिया गया है।"
         : "Your reply has been saved to this local app. We cannot wait to celebrate with you.";
     card.append(title, message);
     form.replaceWith(card);
     confetti();
   } catch (error) {
-    status.textContent = error.message;
+    status.textContent = language === "hi"
+      ? "आपका उत्तर नहीं भेजा जा सका। कृपया दोबारा प्रयास करें।"
+      : "Unable to send your reply. Please try again.";
     button.disabled = false;
     button.textContent = translations.confirm?.[language] || "Confirm";
+  } finally {
+    submitting = false;
   }
 });

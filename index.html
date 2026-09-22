@@ -352,6 +352,8 @@
               ><span class="eyebrow">Full Name</span
               ><input
                 required=""
+                maxlength="200"
+                autocomplete="name"
                 class="w-full rounded-sm border border-input bg-card px-4 py-3 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground/70 focus:border-aegean"
                 name="name" /></label
             ><label class="grid gap-2"
@@ -369,13 +371,13 @@
               ><span class="eyebrow">Dietary Restrictions</span
               ><input
                 class="w-full rounded-sm border border-input bg-card px-4 py-3 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground/70 focus:border-aegean"
-                name="diet" /></label
+                name="diet" maxlength="2000" /></label
             ><label class="grid gap-2"
               ><span class="eyebrow"
                 >What song will get you on the dance floor?</span
               ><input
                 class="w-full rounded-sm border border-input bg-card px-4 py-3 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground/70 focus:border-aegean"
-                name="song" /></label
+                name="song" maxlength="2000" /></label
             ><button
               type="submit"
               id="rsvp-submit-btn"
