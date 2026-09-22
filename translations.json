@@ -270,5 +270,17 @@
   "musicCredits": {
     "en": "Music credits",
     "hi": "संगीत का श्रेय"
+  },
+  "haldiRoom": {
+    "en": "Terrace Ballroom",
+    "hi": "टेरेस बॉलरूम"
+  },
+  "sangeetRoom": {
+    "en": "Clubhouse Ballroom",
+    "hi": "क्लबहाउस बॉलरूम"
+  },
+  "weddingRoom": {
+    "en": "Clubhouse",
+    "hi": "क्लबहाउस"
   }
 }

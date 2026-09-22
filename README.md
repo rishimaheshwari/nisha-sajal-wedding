@@ -63,9 +63,9 @@ The original Prime Care repository and its settings are unchanged.
 
 ## Event weekend
 
-- January 30, 2027 at noon: Haldi — Indian / Indo-Western.
-- January 30, 2027 in the evening: Sangeet — Western / Indo-Western.
-- January 31, 2027 in the morning: Wedding — Royal Traditionals, followed by lunch.
+- January 30, 2027 at noon: Haldi at Terrace Ballroom — Indian / Indo-Western.
+- January 30, 2027 in the evening: Sangeet at Clubhouse Ballroom — Western / Indo-Western.
+- January 31, 2027 in the morning: Wedding at Clubhouse — Royal Traditionals, followed by lunch.
 
 The original doorway video and soundtrack are unchanged. Event illustrations are
 frames extracted at 23s, 31.5s and 42s from the user-supplied WhatsApp invitation

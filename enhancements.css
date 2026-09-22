@@ -353,11 +353,20 @@ footer,
 }
 .event-location {
   display: inline-flex;
+  align-items: center;
   gap: 9px;
   margin-top: 20px;
   font-size: 11px;
   letter-spacing: 0.04em;
   text-underline-offset: 5px;
+}
+.event-location-copy {
+  display: grid;
+  gap: 4px;
+}
+.event-room {
+  font-size: 13px;
+  font-weight: 500;
 }
 .event-location:hover {
   text-decoration: underline;
