@@ -1,1 +1,14 @@
-{"name":"nisha-sajal-wedding-rebuild","version":"1.0.0","private":true,"type":"module","scripts":{"start":"node server.mjs","build":"node build.mjs","check":"node --check app.js && node --check event-audio.js && node --check server.mjs && node --check build.mjs"},"engines":{"node":">=20"}}
+{
+  "name": "nisha-sajal-wedding-rebuild",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs",
+    "build": "node build.mjs",
+    "check": "node --check app.js && node --check event-audio.js && node --check server.mjs && node --check build.mjs && node --check rsvp-identity.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

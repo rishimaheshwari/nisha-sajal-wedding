@@ -2,13 +2,15 @@ import http from "node:http";
 import { readFile, mkdir, appendFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
-import { randomUUID } from "node:crypto";
+import { randomUUID, webcrypto } from "node:crypto";
+import { createNameKey } from "./rsvp-identity.mjs";
 const root = fileURLToPath(new URL(".", import.meta.url));
 const port = Number(process.env.PORT || 5173);
 const mime = {
   ".html": "text/html; charset=utf-8",
   ".css": "text/css",
   ".js": "text/javascript",
+  ".mjs": "text/javascript",
   ".json": "application/json",
   ".webp": "image/webp",
   ".svg": "image/svg+xml",
@@ -61,6 +63,7 @@ http
           id: randomUUID(),
           createdAt: new Date().toISOString(),
           name: data.name.trim(),
+          nameKey: await createNameKey(data.name, webcrypto.subtle),
           attending: data.attending,
           plusOnes: data.attending === "Yes" ? data.plusOnes : 0,
           totalGuests: data.attending === "Yes" ? data.plusOnes + 1 : 0,
@@ -85,10 +88,12 @@ http
       if (
         ![
           "index.html",
+          "music-samples.html",
           "styles.css",
           "enhancements.css",
           "app.js",
           "event-audio.js",
+          "rsvp-identity.mjs",
           "config.js",
           "translations.json",
         ].includes(requested) &&

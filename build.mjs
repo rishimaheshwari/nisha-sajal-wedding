@@ -5,8 +5,10 @@ await rm(dist, { recursive: true, force: true });
 await mkdir(dist, { recursive: true });
 for (const file of [
   "index.html",
+  "music-samples.html",
   "app.js",
   "event-audio.js",
+  "rsvp-identity.mjs",
   "styles.css",
   "enhancements.css",
   "translations.json",

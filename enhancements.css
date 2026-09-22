@@ -15,12 +15,91 @@ canvas {
 button:disabled {
   cursor: default;
 }
+#rsvp-submit-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 52px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  box-shadow: 0 4px 12px #1e2a4f20;
+  transition: background-color 180ms, transform 180ms, box-shadow 180ms, border-color 180ms;
+}
+#rsvp-submit-btn:not(:disabled):hover,
+#rsvp-submit-btn:not(:disabled):focus-visible {
+  background: #1e2a4f;
+  border-color: #d0b16f;
+  box-shadow: 0 7px 20px #1e2a4f38;
+  transform: translateY(-2px);
+}
+#rsvp-submit-btn:not(:disabled):active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px #1e2a4f20;
+}
+#rsvp-submit-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.75;
+}
+#rsvp-submit-btn[aria-busy="true"] {
+  cursor: progress;
+}
+#rsvp-submit-btn[aria-busy="true"]::before {
+  content: "";
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+  border: 2px solid #ffffff66;
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: rsvp-spin 800ms linear infinite;
+}
+@keyframes rsvp-spin {
+  to { transform: rotate(360deg); }
+}
+.rsvp-status {
+  color: #1e2a4f;
+  font-size: 13px;
+  line-height: 1.7;
+  padding: 13px 16px;
+  border-radius: 4px;
+  border: 1px solid #d9d1bd;
+  background: #f6f1e6;
+}
+.rsvp-status:empty { display: none; }
+.rsvp-status[data-state="error"],
+.rsvp-status[data-state="uncertain"],
+.rsvp-status[data-state^="invalid"] {
+  color: #8b303e;
+  background: #fcf0f0;
+  border-color: #e6c2c4;
+}
+.rsvp-status[data-state="success"] {
+  margin-top: 20px;
+  color: #355a45;
+  background: #eff5ee;
+  border-color: #c6d8c5;
+}
+.rsvp-success-check {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  margin: 0 auto 22px;
+  border-radius: 50%;
+  background: #eaf1e6;
+  color: #355a45;
+  font-size: 23px;
+}
 html[lang="hi"] .script {
   font-family: serif;
   line-height: 1.4;
 }
 html[lang="hi"] .eyebrow {
   letter-spacing: 0.06em;
+}
+html[lang="hi"] #rsvp-submit-btn {
+  letter-spacing: 0.04em;
 }
 @media (max-width: 390px) {
   #intro canvas,
@@ -282,6 +361,16 @@ footer,
 }
 .event-location:hover {
   text-decoration: underline;
+}
+.resort-link {
+  text-decoration: underline;
+  text-decoration-color: #b8902f88;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 7px;
+}
+.resort-link:hover {
+  color: #8f6b2e;
+  text-decoration-color: currentColor;
 }
 .event-next {
   position: absolute;

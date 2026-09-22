@@ -18,7 +18,7 @@ Open http://localhost:5173. Set `PORT` to use another port.
 - English/Hindi text switch
 - Gold scratch circles, with Enter/Space keyboard support
 - Countdown to the celebrations on January 30, 2027 at noon in Virginia
-- Venue map link, accommodation, dress code, and registry sections
+- Venue map link, event dress codes, and RSVP
 - RSVP validation, Web3Forms submission on GitHub Pages, and local storage in development
 - Scroll reveals, confetti, responsive layout, and reduced-motion support
 
@@ -95,3 +95,28 @@ credited in the page footer.
 Browser verification covers full-width layouts at desktop and mobile sizes,
 scroll snapping, actual audio decoding, crossfade cleanup, mute behavior, and
 reduced-motion display.
+
+## RSVP feedback and browser duplicate protection
+
+The button has hover, focus, pressed, and busy styles, with an accessible live
+status for sending, success, rejection, and uncertain delivery. A successful
+response stores an event-scoped SHA-256 name key in localStorage and includes
+`name_key` in the Web3Forms payload. Names use Unicode NFKC normalization,
+case folding via lowercase, trimmed edges and collapsed whitespace. Names and
+form answers are not kept in browser storage. Confirmation markers are written
+only after the provider acknowledges success; failed submissions remain retryable.
+Web Locks serialize matching names across tabs where supported.
+
+As requested, this is **same-browser protection**, not a server uniqueness
+constraint. It covers confirmed replies submitted after this change. A different
+browser, cleared/blocked storage or private browsing can bypass it. Without Web
+Locks, simultaneous tabs are not serialized. The local server recomputes and
+records the same name key, but does not enforce database uniqueness.
+
+The venue now leads directly to the attendance form; the accommodation and
+registry sections have been removed.
+
+Lansdowne Resort names in the event slides and venue heading link to its official
+website in a new tab. `music-samples.html` provides optional softer music previews,
+comparisons with the current tracks, and an 84-second medley with three-second
+crossfades. It does not change the invitation soundtrack.

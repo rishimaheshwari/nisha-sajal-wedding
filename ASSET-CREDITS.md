@@ -27,3 +27,19 @@ active. A visible Music credits section in the footer provides attribution.
 The original invitation doorway video, images, and opening soundtrack from the
 reference site are unchanged. The event illustrations are the previously
 extracted frames from the video supplied by the user.
+
+## Optional soundtrack audition
+
+`music-samples.html` compares the current recordings with these Kevin MacLeod
+recordings, also licensed under Creative Commons Attribution 4.0:
+
+- **Dhaka**, ISRC USUAN1400003, 00:20–00:50 excerpt.
+  https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1400003
+- **Dream Culture**, ISRC USUAN1300046, 00:10–00:40 excerpt.
+  https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1300046
+- **Reawakening**, ISRC USUAN1400017, 00:15–00:45 excerpt.
+  https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1400017
+
+Changes: 30-second excerpts, volume normalization, fades and MP3 compression.
+The 84-second combined preview uses three-second linear crossfades. These are
+optional audition samples; the invitation's soundtrack remains unchanged.

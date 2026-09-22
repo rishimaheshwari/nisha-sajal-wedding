@@ -99,18 +99,6 @@
     "en": "Open in Maps",
     "hi": "मैप्स में खोलें"
   },
-  "stayTitle": {
-    "en": "Where to Stay",
-    "hi": "कहाँ ठहरें"
-  },
-  "staySubtitle": {
-    "en": "Details will be added soon.",
-    "hi": "जल्द ही विवरण जोड़े जाएंगे।"
-  },
-  "stayVisit": {
-    "en": "Visit Website",
-    "hi": "वेबसाइट देखें"
-  },
   "dressTitle": {
     "en": "Dress Code",
     "hi": "ड्रेस कोड"
@@ -118,18 +106,6 @@
   "dressText": {
     "en": "We invite you to dress elegantly for all events.",
     "hi": "हम आपको सभी समारोहों के लिए सुरुचिपूर्ण पोशाक पहनने का निमंत्रण देते हैं।"
-  },
-  "registryTitle": {
-    "en": "Registry",
-    "hi": "उपहार"
-  },
-  "registryText": {
-    "en": "We kindly request no boxed gifts. Registry details will be shared here closer to the wedding date.",
-    "hi": "विनम्र अनुरोध है कि कोई बक्साबद्ध उपहार न लाएँ। शादी की तारीख़ के पास रजिस्ट्री का लिंक यहाँ उपलब्ध कराया जाएगा।"
-  },
-  "registryLocked": {
-    "en": "Tap to Reveal Registry Link",
-    "hi": "रजिस्ट्री लिंक देखने के लिए टैप करें"
   },
   "rsvpTitle": {
     "en": "Confirm your attendance",

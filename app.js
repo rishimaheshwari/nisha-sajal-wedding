@@ -49,6 +49,7 @@ languageButtons.forEach((button, index) =>
         : "Lansdowne · 30–31 January 2027";
     updateMusicLabel();
     updateRsvpAvailability();
+    renderRsvpState();
   }),
 );
 const observer = new IntersectionObserver(
@@ -378,103 +379,182 @@ function updateRsvpAvailability() {
 }
 updateRsvpAvailability();
 const status = document.createElement("p");
+status.id = "rsvp-status";
+status.className = "rsvp-status";
 status.setAttribute("role", "status");
 status.setAttribute("aria-live", "polite");
-form.append(status);
+status.setAttribute("aria-atomic", "true");
+form.insertBefore(status, note);
+const submitButton = $("[type=submit]", form);
+const nameInput = $("[name=name]", form);
+const confirmedNames = new Set();
+const receiptPrefix = "nisha-sajal:rsvp:confirmed:v1:";
 let submitting = false;
+let rsvpState = "idle";
+let successTitle;
+const rsvpCopy = {
+  en: {
+    idle: ["Confirm", ""],
+    checking: ["Checking…", "Checking your RSVP…"],
+    sending: ["Sending…", "Sending your RSVP. Please keep this page open."],
+    slow: ["Sending…", "Still sending your RSVP. Please keep this page open."],
+    error: ["Try again", "Unable to send your reply. Please check your connection and try again."],
+    uncertain: ["Try again", "We couldn’t confirm delivery. Please check with the wedding organizers before trying again."],
+    duplicate: ["Already received", "An RSVP for this name has already been received in this browser. Please contact the wedding organizers if you need to make a change."],
+    invalid: ["Confirm", "Please complete the required fields before sending your RSVP."],
+    invalidName: ["Confirm", "Please enter your full name."],
+    invalidGuests: ["Confirm", "Please enter a whole number of additional guests from 0 to 99."],
+    success: ["RSVP received", "Your reply has been received. Thank you for letting us know."],
+  },
+  hi: {
+    idle: ["पुष्टि करें", ""],
+    checking: ["जाँच हो रही है…", "आपके RSVP की जाँच हो रही है…"],
+    sending: ["भेजा जा रहा है…", "आपका RSVP भेजा जा रहा है। कृपया यह पेज खुला रखें।"],
+    slow: ["भेजा जा रहा है…", "आपका RSVP अभी भेजा जा रहा है। कृपया यह पेज खुला रखें।"],
+    error: ["फिर कोशिश करें", "आपका उत्तर नहीं भेजा जा सका। कृपया अपना इंटरनेट कनेक्शन जाँचें और दोबारा प्रयास करें।"],
+    uncertain: ["फिर कोशिश करें", "आपके उत्तर की पुष्टि नहीं हो सकी। दोबारा भेजने से पहले कृपया शादी के आयोजकों से संपर्क करें।"],
+    duplicate: ["उत्तर प्राप्त हो चुका है", "इस नाम का RSVP इस ब्राउज़र से पहले ही प्राप्त हो चुका है। बदलाव के लिए कृपया शादी के आयोजकों से संपर्क करें।"],
+    invalid: ["पुष्टि करें", "कृपया RSVP भेजने से पहले सभी आवश्यक जानकारी भरें।"],
+    invalidName: ["पुष्टि करें", "कृपया अपना पूरा नाम दर्ज करें।"],
+    invalidGuests: ["पुष्टि करें", "कृपया ० से ९९ तक अतिरिक्त मेहमानों की सही संख्या दर्ज करें।"],
+    success: ["RSVP प्राप्त हुआ", "आपका उत्तर प्राप्त हो गया है। हमें बताने के लिए धन्यवाद।"],
+  },
+};
+function renderRsvpState() {
+  const [label, message] = rsvpCopy[language][rsvpState];
+  if (rsvpEndpoint) submitButton.textContent = label;
+  status.textContent = message;
+  status.dataset.state = rsvpState;
+  submitButton.dataset.state = rsvpState;
+  submitButton.disabled = !rsvpEndpoint || submitting || rsvpState === "duplicate";
+  submitButton.setAttribute("aria-busy", String(submitting));
+  form.setAttribute("aria-busy", String(submitting));
+  if (successTitle)
+    successTitle.textContent = translations.thankYou?.[language] || "Thank You";
+}
+function setRsvpState(state) {
+  rsvpState = state;
+  renderRsvpState();
+}
+function wasConfirmed(key) {
+  try {
+    return confirmedNames.has(key) || localStorage.getItem(receiptPrefix + key) === "1";
+  } catch {
+    return confirmedNames.has(key);
+  }
+}
+function rememberConfirmation(key) {
+  confirmedNames.add(key);
+  // Only store a hash, never the guest's name or their form answers.
+  try { localStorage.setItem(receiptPrefix + key, "1"); } catch {}
+}
+nameInput.addEventListener("input", () => {
+  if (!submitting && rsvpState !== "idle") setRsvpState("idle");
+});
+form.addEventListener("invalid", () => {
+  if (!submitting) setRsvpState("invalid");
+}, true);
+renderRsvpState();
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
-  if (!rsvpEndpoint || submitting || !form.reportValidity()) return;
-  if (botcheck.checked) return;
+  if (!rsvpEndpoint || submitting || !form.reportValidity() || botcheck.checked) return;
   const data = Object.fromEntries(new FormData(form));
   data.name = data.name.trim();
   const plusOnes = data.attending === "Yes" ? Number(data.plusOnes) : 0;
   if (!Number.isInteger(plusOnes) || plusOnes < 0 || plusOnes > 99) {
-    status.textContent =
-      language === "hi"
-        ? "कृपया अतिरिक्त मेहमानों की सही संख्या दर्ज करें।"
-        : "Please enter a whole number of additional guests from 0 to 99.";
+    setRsvpState("invalidGuests");
     return;
   }
   const totalGuests = data.attending === "Yes" ? plusOnes + 1 : 0;
   if (!data.name) {
-    status.textContent =
-      language === "hi"
-        ? "कृपया अपना पूरा नाम दर्ज करें।"
-        : "Please enter your full name.";
-    $("[name=name]", form).focus();
+    setRsvpState("invalidName");
+    nameInput.focus();
     return;
   }
   submitting = true;
-  const button = $("[type=submit]", form);
-  button.disabled = true;
-  button.textContent = language === "hi" ? "भेजा जा रहा है…" : "Sending…";
-  status.textContent = "";
+  setRsvpState("checking");
+  const controls = $$("input, select", form).map((control) => [control, control.disabled]);
+  controls.forEach(([control]) => { control.disabled = true; });
+  let slowTimer;
+  let timeoutTimer;
+  let requestStarted = false;
+  let responseReceived = false;
   try {
-    const payload = isWeb3Forms
-      ? {
-          access_key: window.WEDDING_CONFIG.accessKey,
-          subject: window.WEDDING_CONFIG.subject,
-          from_name: "Nisha & Sajal Wedding",
-          name: data.name,
-          attending: data.attending,
-          plus_ones: plusOnes,
-          total_guests: totalGuests,
-          song_request: data.song.trim(),
-          event: "Nisha & Sajal · January 30–31, 2027",
-          source: "nisha-sajal-wedding",
-          website: location.origin + location.pathname,
-          botcheck: false,
-        }
-      : {
-          name: data.name,
-          attending: data.attending,
-          plusOnes,
-          song: data.song,
-        };
-    const response = await fetch(rsvpEndpoint, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify(payload),
-    });
-    const result = await response.json();
-    if (
-      !response.ok ||
-      (isWeb3Forms ? result.success !== true : result.ok !== true)
-    )
-      throw new Error(
-        language === "hi"
-          ? "आपका उत्तर नहीं भेजा जा सका। कृपया दोबारा प्रयास करें।"
-          : "Unable to send your reply. Please try again.",
-      );
-    const card = document.createElement("div");
-    card.className = "surface-card mt-9 rounded-sm px-7 py-12 text-center";
-    const title = document.createElement("p");
-    title.className = "script text-5xl text-gold";
-    title.textContent = translations.thankYou?.[language] || "Thank You";
-    const message = document.createElement("p");
-    message.className = "mt-5 text-sm text-muted-foreground";
-    message.textContent = isWeb3Forms
-      ? language === "hi"
-        ? "आपका उत्तर प्राप्त हो गया है। हमें बताने के लिए धन्यवाद।"
-        : "Your reply has been received. Thank you for letting us know."
-      : language === "hi"
-        ? "आपका उत्तर इस स्थानीय ऐप में सहेज दिया गया है।"
-        : "Your reply has been saved to this local app. We cannot wait to celebrate with you.";
-    card.append(title, message);
-    form.replaceWith(card);
-    confetti();
-  } catch (error) {
-    status.textContent =
-      language === "hi"
-        ? "आपका उत्तर नहीं भेजा जा सका। कृपया दोबारा प्रयास करें।"
-        : "Unable to send your reply. Please try again.";
-    button.disabled = false;
-    button.textContent = translations.confirm?.[language] || "Confirm";
+    const { createNameKey } = await import("./rsvp-identity.mjs");
+    const nameKey = await createNameKey(data.name);
+    async function sendReply() {
+      // Check inside the cross-tab lock so two tabs cannot both send the same name.
+      if (wasConfirmed(nameKey)) {
+        setRsvpState("duplicate");
+        return;
+      }
+      setRsvpState("sending");
+      const payload = isWeb3Forms
+        ? {
+            access_key: window.WEDDING_CONFIG.accessKey,
+            subject: window.WEDDING_CONFIG.subject,
+            from_name: "Nisha & Sajal Wedding",
+            name: data.name,
+            name_key: nameKey,
+            attending: data.attending,
+            plus_ones: plusOnes,
+            total_guests: totalGuests,
+            song_request: data.song.trim(),
+            event: "Nisha & Sajal · January 30–31, 2027",
+            source: "nisha-sajal-wedding",
+            website: location.origin + location.pathname,
+            botcheck: false,
+          }
+        : { name: data.name, nameKey, attending: data.attending, plusOnes, song: data.song };
+      const controller = new AbortController();
+      slowTimer = setTimeout(() => setRsvpState("slow"), 10000);
+      timeoutTimer = setTimeout(() => controller.abort(), 30000);
+      requestStarted = true;
+      const response = await fetch(rsvpEndpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(payload),
+        signal: controller.signal,
+      });
+      const result = await response.json();
+      responseReceived = true;
+      if (!response.ok || (isWeb3Forms ? result.success !== true : result.ok !== true))
+        throw new Error("RSVP rejected");
+      rememberConfirmation(nameKey);
+      clearTimeout(slowTimer);
+      clearTimeout(timeoutTimer);
+      submitting = false;
+      setRsvpState("success");
+      const card = document.createElement("div");
+      card.id = "rsvp-confirmation";
+      card.className = "surface-card mt-9 rounded-sm px-7 py-12 text-center";
+      card.tabIndex = -1;
+      card.setAttribute("aria-labelledby", "rsvp-success-title");
+      successTitle = document.createElement("p");
+      successTitle.id = "rsvp-success-title";
+      successTitle.className = "script text-5xl text-gold";
+      successTitle.textContent = translations.thankYou?.[language] || "Thank You";
+      const check = document.createElement("span");
+      check.className = "rsvp-success-check";
+      check.setAttribute("aria-hidden", "true");
+      check.textContent = "✓";
+      card.append(check, successTitle, status);
+      form.replaceWith(card);
+      card.focus({ preventScroll: true });
+      confetti();
+    }
+    if (navigator.locks?.request) {
+      await navigator.locks.request(receiptPrefix + nameKey, sendReply);
+    } else {
+      await sendReply();
+    }
+  } catch {
+    setRsvpState(requestStarted && !responseReceived ? "uncertain" : "error");
   } finally {
+    clearTimeout(slowTimer);
+    clearTimeout(timeoutTimer);
+    controls.forEach(([control, disabled]) => { control.disabled = disabled; });
     submitting = false;
+    renderRsvpState();
   }
 });
