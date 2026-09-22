@@ -1,0 +1,190 @@
+{
+  "tapToOpen": {
+    "en": "Tap to Open",
+    "hi": "खोलने के लिए टैप करें"
+  },
+  "heroSubtitle": {
+    "en": "Lansdowne · 2027",
+    "hi": "लैंसडाउन · २०२७"
+  },
+  "invited": {
+    "en": "You are invited to celebrate the wedding of",
+    "hi": "आपको शादी के उत्सव में शामिल होने के लिए आमंत्रित किया गया है"
+  },
+  "couple": {
+    "en": "Nisha & Sajal",
+    "hi": "निशा & सजल"
+  },
+  "scratchTitle": {
+    "en": "Scratch to discover the date",
+    "hi": "तारीख़ जानने के लिए स्क्रैच करें"
+  },
+  "scratchHint": {
+    "en": "Swipe across the gold",
+    "hi": "सोने पर उँगली घुमाएँ"
+  },
+  "dates": {
+    "en": "January 31, 2027",
+    "hi": "३१ जनवरी, २०२७"
+  },
+  "countdown": {
+    "en": "Counting the days",
+    "hi": "दिन गिने जा रहे हैं"
+  },
+  "days": {
+    "en": "Days",
+    "hi": "दिन"
+  },
+  "hours": {
+    "en": "Hours",
+    "hi": "घंटे"
+  },
+  "minutes": {
+    "en": "Minutes",
+    "hi": "मिनट"
+  },
+  "seconds": {
+    "en": "Seconds",
+    "hi": "सेकंड"
+  },
+  "itinerary": {
+    "en": "Celebration",
+    "hi": "उत्सव"
+  },
+  "day1": {
+    "en": "Day One",
+    "hi": "पहला दिन"
+  },
+  "day2": {
+    "en": "Day Two",
+    "hi": "दूसरा दिन"
+  },
+  "ceremony1": {
+    "en": "Hindu Ceremony",
+    "hi": "हिंदू विवाह संस्कार"
+  },
+  "ceremony2": {
+    "en": "Civil Ceremony",
+    "hi": "सिविल सेरेमनी"
+  },
+  "ceremony3": {
+    "en": "Reception",
+    "hi": "स्वागत समारोह"
+  },
+  "date1": {
+    "en": "January 31, 2027 · 14:00",
+    "hi": "३१ जनवरी, २०२७ · १४:००"
+  },
+  "date2": {
+    "en": "January 31, 2027",
+    "hi": "३१ जनवरी, २०२७"
+  },
+  "time2": {
+    "en": "09:00",
+    "hi": "०९:००"
+  },
+  "time3": {
+    "en": "17:00",
+    "hi": "१७:००"
+  },
+  "venue1": {
+    "en": "Lansdowne Resort",
+    "hi": "लैंसडाउन रिसॉर्ट"
+  },
+  "teaNote": {
+    "en": "44050 Woodridge Pkwy, Leesburg, VA 20176",
+    "hi": "४४०५० वुडरिज पार्कवे, लीसबर्ग, VA २०१७६"
+  },
+  "venue2": {
+    "en": "Lansdowne",
+    "hi": "लैंसडाउन"
+  },
+  "venue3": {
+    "en": "Lansdowne",
+    "hi": "लैंसडाउन"
+  },
+  "openMaps": {
+    "en": "Open in Maps",
+    "hi": "मैप्स में खोलें"
+  },
+  "stayTitle": {
+    "en": "Where to Stay",
+    "hi": "कहाँ ठहरें"
+  },
+  "staySubtitle": {
+    "en": "Details will be added soon.",
+    "hi": "जल्द ही विवरण जोड़े जाएंगे।"
+  },
+  "stayVisit": {
+    "en": "Visit Website",
+    "hi": "वेबसाइट देखें"
+  },
+  "dressTitle": {
+    "en": "Dress Code",
+    "hi": "ड्रेस कोड"
+  },
+  "dressText": {
+    "en": "We invite you to dress elegantly for all events.",
+    "hi": "हम आपको सभी समारोहों के लिए सुरुचिपूर्ण पोशाक पहनने का निमंत्रण देते हैं।"
+  },
+  "registryTitle": {
+    "en": "Registry",
+    "hi": "उपहार"
+  },
+  "registryText": {
+    "en": "We kindly request no boxed gifts. Registry details will be shared here closer to the wedding date.",
+    "hi": "विनम्र अनुरोध है कि कोई बक्साबद्ध उपहार न लाएँ। शादी की तारीख़ के पास रजिस्ट्री का लिंक यहाँ उपलब्ध कराया जाएगा।"
+  },
+  "registryLocked": {
+    "en": "Tap to Reveal Registry Link",
+    "hi": "रजिस्ट्री लिंक देखने के लिए टैप करें"
+  },
+  "rsvpTitle": {
+    "en": "Confirm your attendance",
+    "hi": "अपनी उपस्थिति की पुष्टि करें"
+  },
+  "rsvpDeadline": {
+    "en": "Please RSVP by December 31st, 2026",
+    "hi": "कृपया ३१ दिसंबर, २०२६ तक उत्तर दें"
+  },
+  "fullName": {
+    "en": "Full Name",
+    "hi": "पूरा नाम"
+  },
+  "attend": {
+    "en": "Will you attend?",
+    "hi": "क्या आप शामिल होंगे?"
+  },
+  "yes": {
+    "en": "Yes",
+    "hi": "हाँ"
+  },
+  "no": {
+    "en": "No",
+    "hi": "नहीं"
+  },
+  "diet": {
+    "en": "Dietary Restrictions",
+    "hi": "आहार संबंधी पाबंदियाँ"
+  },
+  "song": {
+    "en": "What song will get you on the dance floor?",
+    "hi": "कौन सा गाना आपको डांस फ्लोर पर ले आएगा?"
+  },
+  "confirm": {
+    "en": "Confirm",
+    "hi": "पुष्टि करें"
+  },
+  "thankYou": {
+    "en": "Thank You",
+    "hi": "धन्यवाद"
+  },
+  "thankYouText": {
+    "en": "Your reply has been received. We cannot wait to celebrate with you under the Aegean sun.",
+    "hi": "आपका उत्तर प्राप्त हो गया है। हम एजियन सूरज के नीचे आपके साथ उत्सव मनाने के लिए बेसब्री से इंतज़ार कर रहे हैं।"
+  },
+  "select": {
+    "en": "Select",
+    "hi": "चुनें"
+  }
+}
