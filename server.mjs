@@ -43,7 +43,10 @@ http
           !data.name.trim() ||
           data.name.length > 200 ||
           !["Yes", "No"].includes(data.attending) ||
-          ["diet", "song"].some(
+          !Number.isInteger(data.plusOnes) ||
+          data.plusOnes < 0 ||
+          data.plusOnes > 99 ||
+          ["song"].some(
             (k) =>
               data[k] !== undefined &&
               (typeof data[k] !== "string" || data[k].length > 2000),
@@ -58,7 +61,8 @@ http
           createdAt: new Date().toISOString(),
           name: data.name.trim(),
           attending: data.attending,
-          diet: data.diet || "",
+          plusOnes: data.attending === "Yes" ? data.plusOnes : 0,
+          totalGuests: data.attending === "Yes" ? data.plusOnes + 1 : 0,
           song: data.song || "",
         };
         await mkdir(path.join(root, "data"), { recursive: true });

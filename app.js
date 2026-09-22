@@ -14,8 +14,9 @@ fetch("./translations.json")
     );
     while (walker.nextNode()) {
       const node = walker.currentNode;
+      if (node.parentElement?.closest("[data-i18n]")) continue;
       const key = Object.keys(data).find(
-        (k) => data[k].en === node.textContent.trim(),
+        (k) => data[k].en === node.textContent.replace(/\s+/g, " ").trim(),
       );
       if (key) textBindings.push({ node, key });
     }
@@ -28,6 +29,10 @@ languageButtons.forEach((button, index) =>
     document.documentElement.lang = language;
     for (const { node, key } of textBindings)
       node.textContent = translations[key][language];
+    $$("[data-i18n]").forEach((el) => {
+      const entry = translations[el.dataset.i18n];
+      if (entry) el.textContent = entry[language];
+    });
     languageButtons.forEach((b, i) => {
       b.setAttribute("aria-pressed", String(index === i));
       b.style.background = index === i ? "#1E2A4F" : "transparent";
@@ -40,8 +45,8 @@ languageButtons.forEach((button, index) =>
     });
     $("footer .eyebrow").textContent =
       language === "hi"
-        ? "लैंसडाउन · ३१ जनवरी २०२७"
-        : "Lansdowne · 31 January 2027";
+        ? "लैंसडाउन · ३०–३१ जनवरी २०२७"
+        : "Lansdowne · 30–31 January 2027";
     updateMusicLabel();
     updateRsvpAvailability();
   }),
@@ -58,6 +63,44 @@ const observer = new IntersectionObserver(
   { threshold: 0.15 },
 );
 $$(".reveal").forEach((el) => observer.observe(el));
+const eventChapters = $$(".event-chapter");
+const chapterObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) =>
+      entry.target.classList.toggle("in-view", entry.isIntersecting),
+    );
+  },
+  { threshold: 0.1 },
+);
+eventChapters.forEach((el) => chapterObserver.observe(el));
+if (!reducedMotion) {
+  let scrollPending = false;
+  const animateChapters = () => {
+    eventChapters.forEach((chapter) => {
+      const rect = chapter.getBoundingClientRect();
+      if (rect.bottom > 0 && rect.top < innerHeight) {
+        const progress =
+          (innerHeight / 2 - rect.top) / (innerHeight + rect.height);
+        chapter.style.setProperty(
+          "--scene-shift",
+          `${Math.max(-16, Math.min(16, progress * 24))}px`,
+        );
+      }
+    });
+    scrollPending = false;
+  };
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (!scrollPending) {
+        scrollPending = true;
+        requestAnimationFrame(animateChapters);
+      }
+    },
+    { passive: true },
+  );
+  animateChapters();
+}
 const music = new Audio("./assets/music.mp3");
 music.loop = true;
 music.volume = 0.4;
@@ -129,11 +172,11 @@ doorButton.addEventListener("click", async () => {
     reducedMotion || failed ? 1200 : 11000,
   );
 });
-const countdown = $$("section")[2];
+const countdown = $("#countdown");
 function tick() {
   const total = Math.max(
     0,
-    Math.floor((new Date("2027-01-31T14:00:00-05:00") - Date.now()) / 1000),
+    Math.floor((new Date("2027-01-30T12:00:00-05:00") - Date.now()) / 1000),
   );
   const values = [
     Math.floor(total / 86400),
@@ -277,6 +320,13 @@ const note = document.createElement("p");
 note.className = "text-xs text-muted-foreground";
 form.append(note);
 const rsvpEndpoint = window.WEDDING_CONFIG?.rsvpEndpoint;
+const attendanceInput = $("[name=attending]", form);
+const plusOnesInput = $("[name=plusOnes]", form);
+attendanceInput.addEventListener("change", () => {
+  const notAttending = attendanceInput.value === "No";
+  if (notAttending) plusOnesInput.value = "0";
+  plusOnesInput.disabled = notAttending;
+});
 const isWeb3Forms = window.WEDDING_CONFIG?.rsvpProvider === "web3forms";
 const botcheck = document.createElement("input");
 botcheck.type = "checkbox";
@@ -289,23 +339,27 @@ form.append(botcheck);
 function updateRsvpAvailability() {
   if (rsvpEndpoint) {
     if (isWeb3Forms) {
-      note.textContent = language === "hi"
-        ? "आपका उत्तर शादी के आयोजकों को भेजा जाएगा।"
-        : "Your reply will be sent to the wedding organizers.";
+      note.textContent =
+        language === "hi"
+          ? "आपका उत्तर शादी के आयोजकों को भेजा जाएगा।"
+          : "Your reply will be sent to the wedding organizers.";
       return;
     }
-    note.textContent = language === "hi"
-      ? "उत्तर इस स्थानीय ऐप में सहेजे जाते हैं।"
-      : "Recreated site: replies are saved to this local app.";
+    note.textContent =
+      language === "hi"
+        ? "उत्तर इस स्थानीय ऐप में सहेजे जाते हैं।"
+        : "Recreated site: replies are saved to this local app.";
     return;
   }
-  note.textContent = language === "hi"
-    ? "ऑनलाइन RSVP जल्द शुरू होंगे। कृपया बाद में देखें।"
-    : "Online RSVPs will open soon. Please check back later.";
-  $$("input, select, button", form).forEach(control => control.disabled = true);
-  $("[type=submit]", form).textContent = language === "hi"
-    ? "RSVP जल्द शुरू होंगे"
-    : "RSVPs opening soon";
+  note.textContent =
+    language === "hi"
+      ? "ऑनलाइन RSVP जल्द शुरू होंगे। कृपया बाद में देखें।"
+      : "Online RSVPs will open soon. Please check back later.";
+  $$("input, select, button", form).forEach(
+    (control) => (control.disabled = true),
+  );
+  $("[type=submit]", form).textContent =
+    language === "hi" ? "RSVP जल्द शुरू होंगे" : "RSVPs opening soon";
 }
 updateRsvpAvailability();
 const status = document.createElement("p");
@@ -319,8 +373,20 @@ form.addEventListener("submit", async (e) => {
   if (botcheck.checked) return;
   const data = Object.fromEntries(new FormData(form));
   data.name = data.name.trim();
+  const plusOnes = data.attending === "Yes" ? Number(data.plusOnes) : 0;
+  if (!Number.isInteger(plusOnes) || plusOnes < 0 || plusOnes > 99) {
+    status.textContent =
+      language === "hi"
+        ? "कृपया अतिरिक्त मेहमानों की सही संख्या दर्ज करें।"
+        : "Please enter a whole number of additional guests from 0 to 99.";
+    return;
+  }
+  const totalGuests = data.attending === "Yes" ? plusOnes + 1 : 0;
   if (!data.name) {
-    status.textContent = language === "hi" ? "कृपया अपना पूरा नाम दर्ज करें।" : "Please enter your full name.";
+    status.textContent =
+      language === "hi"
+        ? "कृपया अपना पूरा नाम दर्ज करें।"
+        : "Please enter your full name.";
     $("[name=name]", form).focus();
     return;
   }
@@ -330,29 +396,45 @@ form.addEventListener("submit", async (e) => {
   button.textContent = language === "hi" ? "भेजा जा रहा है…" : "Sending…";
   status.textContent = "";
   try {
-    const payload = isWeb3Forms ? {
-      access_key: window.WEDDING_CONFIG.accessKey,
-      subject: window.WEDDING_CONFIG.subject,
-      from_name: "Nisha & Sajal Wedding",
-      name: data.name,
-      attending: data.attending,
-      dietary_restrictions: data.diet.trim(),
-      song_request: data.song.trim(),
-      event: "Nisha & Sajal · January 31, 2027",
-      source: "nisha-sajal-wedding",
-      website: location.origin + location.pathname,
-      botcheck: false,
-    } : { name: data.name, attending: data.attending, diet: data.diet, song: data.song };
+    const payload = isWeb3Forms
+      ? {
+          access_key: window.WEDDING_CONFIG.accessKey,
+          subject: window.WEDDING_CONFIG.subject,
+          from_name: "Nisha & Sajal Wedding",
+          name: data.name,
+          attending: data.attending,
+          plus_ones: plusOnes,
+          total_guests: totalGuests,
+          song_request: data.song.trim(),
+          event: "Nisha & Sajal · January 30–31, 2027",
+          source: "nisha-sajal-wedding",
+          website: location.origin + location.pathname,
+          botcheck: false,
+        }
+      : {
+          name: data.name,
+          attending: data.attending,
+          plusOnes,
+          song: data.song,
+        };
     const response = await fetch(rsvpEndpoint, {
       method: "POST",
-      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
       body: JSON.stringify(payload),
     });
     const result = await response.json();
-    if (!response.ok || (isWeb3Forms ? result.success !== true : result.ok !== true))
-      throw new Error(language === "hi"
-        ? "आपका उत्तर नहीं भेजा जा सका। कृपया दोबारा प्रयास करें।"
-        : "Unable to send your reply. Please try again.");
+    if (
+      !response.ok ||
+      (isWeb3Forms ? result.success !== true : result.ok !== true)
+    )
+      throw new Error(
+        language === "hi"
+          ? "आपका उत्तर नहीं भेजा जा सका। कृपया दोबारा प्रयास करें।"
+          : "Unable to send your reply. Please try again.",
+      );
     const card = document.createElement("div");
     card.className = "surface-card mt-9 rounded-sm px-7 py-12 text-center";
     const title = document.createElement("p");
@@ -371,9 +453,10 @@ form.addEventListener("submit", async (e) => {
     form.replaceWith(card);
     confetti();
   } catch (error) {
-    status.textContent = language === "hi"
-      ? "आपका उत्तर नहीं भेजा जा सका। कृपया दोबारा प्रयास करें।"
-      : "Unable to send your reply. Please try again.";
+    status.textContent =
+      language === "hi"
+        ? "आपका उत्तर नहीं भेजा जा सका। कृपया दोबारा प्रयास करें।"
+        : "Unable to send your reply. Please try again.";
     button.disabled = false;
     button.textContent = translations.confirm?.[language] || "Confirm";
   } finally {

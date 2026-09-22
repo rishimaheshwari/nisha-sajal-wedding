@@ -28,8 +28,8 @@
     "hi": "३१ जनवरी, २०२७"
   },
   "countdown": {
-    "en": "Counting the days",
-    "hi": "दिन गिने जा रहे हैं"
+    "en": "Until the celebrations begin",
+    "hi": "उत्सव शुरू होने तक"
   },
   "days": {
     "en": "Days",
@@ -59,10 +59,6 @@
     "en": "Day Two",
     "hi": "दूसरा दिन"
   },
-  "ceremony1": {
-    "en": "Hindu Ceremony",
-    "hi": "हिंदू विवाह संस्कार"
-  },
   "ceremony2": {
     "en": "Civil Ceremony",
     "hi": "सिविल सेरेमनी"
@@ -70,10 +66,6 @@
   "ceremony3": {
     "en": "Reception",
     "hi": "स्वागत समारोह"
-  },
-  "date1": {
-    "en": "January 31, 2027 · 14:00",
-    "hi": "३१ जनवरी, २०२७ · १४:००"
   },
   "date2": {
     "en": "January 31, 2027",
@@ -163,10 +155,6 @@
     "en": "No",
     "hi": "नहीं"
   },
-  "diet": {
-    "en": "Dietary Restrictions",
-    "hi": "आहार संबंधी पाबंदियाँ"
-  },
   "song": {
     "en": "What song will get you on the dance floor?",
     "hi": "कौन सा गाना आपको डांस फ्लोर पर ले आएगा?"
@@ -186,5 +174,109 @@
   "select": {
     "en": "Select",
     "hi": "चुनें"
+  },
+  "weekend": {
+    "en": "January 30 & 31, 2027",
+    "hi": "३० और ३१ जनवरी, २०२७"
+  },
+  "ourCelebrations": {
+    "en": "Two days. A lifetime of memories.",
+    "hi": "दो दिन। जीवन भर की यादें।"
+  },
+  "celebrationsIntro": {
+    "en": "Celebrate every beautiful beginning with Nisha & Sajal.",
+    "hi": "निशा और सजल के साथ हर खूबसूरत शुरुआत का जश्न मनाएँ।"
+  },
+  "haldi": {
+    "en": "Haldi",
+    "hi": "हल्दी"
+  },
+  "sangeet": {
+    "en": "Sangeet",
+    "hi": "संगीत"
+  },
+  "wedding": {
+    "en": "Wedding",
+    "hi": "विवाह"
+  },
+  "weddingTitle": {
+    "en": "The Wedding",
+    "hi": "शुभ विवाह"
+  },
+  "dayOneLabel": {
+    "en": "Day One · Saturday",
+    "hi": "पहला दिन · शनिवार"
+  },
+  "dayTwoLabel": {
+    "en": "Day Two · Sunday",
+    "hi": "दूसरा दिन · रविवार"
+  },
+  "haldiWhen": {
+    "en": "January 30, 2027 · Noon",
+    "hi": "३० जनवरी, २०२७ · दोपहर"
+  },
+  "sangeetWhen": {
+    "en": "January 30, 2027 · Evening",
+    "hi": "३० जनवरी, २०२७ · शाम"
+  },
+  "weddingWhen": {
+    "en": "January 31, 2027 · Morning",
+    "hi": "३१ जनवरी, २०२७ · सुबह"
+  },
+  "haldiStory": {
+    "en": "A little sunshine, a little turmeric, and a whole lot of love.",
+    "hi": "थोड़ी धूप, थोड़ी हल्दी और ढेर सारा प्यार।"
+  },
+  "sangeetStory": {
+    "en": "An evening of music, dancing, and all our favourite people.",
+    "hi": "संगीत, नृत्य और अपनों के साथ एक खूबसूरत शाम।"
+  },
+  "weddingStory": {
+    "en": "Together with you, we begin our forever.",
+    "hi": "आपके साथ हम अपने नए जीवन की शुरुआत करते हैं।"
+  },
+  "followedByLunch": {
+    "en": "Wedding ceremony followed by lunch",
+    "hi": "विवाह समारोह के बाद दोपहर का भोजन"
+  },
+  "whatToWear": {
+    "en": "What to wear",
+    "hi": "पहनावा"
+  },
+  "haldiAttire": {
+    "en": "Indian / Indo-Western",
+    "hi": "भारतीय / इंडो-वेस्टर्न"
+  },
+  "sangeetAttire": {
+    "en": "Western / Indo-Western",
+    "hi": "वेस्टर्न / इंडो-वेस्टर्न"
+  },
+  "weddingAttire": {
+    "en": "Royal Traditionals",
+    "hi": "शाही पारंपरिक परिधान"
+  },
+  "haldiOutfitNote": {
+    "en": "Bright, joyful Indian or Indo-Western outfits for an afternoon of celebration.",
+    "hi": "दोपहर के उत्सव के लिए रंगीन भारतीय या इंडो-वेस्टर्न परिधान।"
+  },
+  "sangeetOutfitNote": {
+    "en": "Dress up in Western or Indo-Western eveningwear and bring your dancing shoes.",
+    "hi": "वेस्टर्न या इंडो-वेस्टर्न परिधान पहनें और नृत्य के लिए तैयार रहें।"
+  },
+  "weddingOutfitNote": {
+    "en": "Celebrate with us in your finest traditional wedding attire.",
+    "hi": "अपने सुंदर पारंपरिक विवाह परिधान में हमारे साथ उत्सव मनाएँ।"
+  },
+  "comeCelebrate": {
+    "en": "Come celebrate with us",
+    "hi": "हमारे साथ उत्सव मनाएँ"
+  },
+  "plusOnes": {
+    "en": "How many +1s are joining you?",
+    "hi": "आपके साथ कितने अतिरिक्त मेहमान आएँगे?"
+  },
+  "plusOnesHelp": {
+    "en": "Additional guests, not including yourself. Enter 0 if it is just you.",
+    "hi": "स्वयं को छोड़कर अतिरिक्त मेहमानों की संख्या। अकेले आने पर 0 दर्ज करें।"
   }
 }

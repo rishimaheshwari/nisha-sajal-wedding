@@ -17,7 +17,7 @@ Open http://localhost:5173. Set `PORT` to use another port.
 - Animated invitation doorway and background music toggle
 - English/Hindi text switch
 - Gold scratch circles, with Enter/Space keyboard support
-- Countdown to January 31, 2027 at 2 PM in Virginia
+- Countdown to the celebrations on January 30, 2027 at noon in Virginia
 - Venue map link, accommodation, dress code, and registry sections
 - RSVP validation, Web3Forms submission on GitHub Pages, and local storage in development
 - Scroll reveals, confetti, responsive layout, and reduced-motion support
@@ -51,8 +51,8 @@ submission identifier, not an administrative API secret.
 ## Wedding submissions
 
 Replies use the subject `Nisha & Sajal Wedding RSVP`, the source field
-`nisha-sajal-wedding`, and an event field identifying January 31, 2027. They include
-the guest's name, attendance, dietary restrictions, and song request. They share
+`nisha-sajal-wedding`, and an event field identifying January 30–31, 2027. They include
+the guest's name, attendance, additional guest count, total party size, and song request. They share
 the existing Web3Forms form, recipient, account quota, and retention settings with
 Prime Care. Access and export submissions in the existing Web3Forms dashboard;
 the wedding site never reads stored submissions. Account retention and delivery
@@ -60,3 +60,19 @@ settings cannot be verified from the public submission key. If Trusted Domains
 are enabled, allow `rishimaheshwari.github.io` in that form's Web3Forms settings.
 
 The original Prime Care repository and its settings are unchanged.
+
+## Event weekend
+
+- January 30, 2027 at noon: Haldi — Indian / Indo-Western.
+- January 30, 2027 in the evening: Sangeet — Western / Indo-Western.
+- January 31, 2027 in the morning: Wedding — Royal Traditionals, followed by lunch.
+
+The original doorway video and soundtrack are unchanged. Event illustrations are
+frames extracted at 23s, 31.5s and 42s from the user-supplied WhatsApp invitation
+video. Only scene artwork and attire guidance were reused; its other couple's
+names, dates, locations and contact details are not included. Scroll transitions
+use gentle parallax and reveal effects with a reduced-motion fallback.
+
+The RSVP additional guest count excludes the person submitting. An attending
+response with 2 additional guests stores `plus_ones: 2` and `total_guests: 3`.
+Declining responses always store zero attendees. No dietary information is collected.
