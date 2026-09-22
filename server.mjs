@@ -11,6 +11,7 @@ const mime = {
   ".js": "text/javascript",
   ".json": "application/json",
   ".webp": "image/webp",
+  ".svg": "image/svg+xml",
   ".png": "image/png",
   ".webm": "video/webm",
   ".mp3": "audio/mpeg",
@@ -87,6 +88,7 @@ http
           "styles.css",
           "enhancements.css",
           "app.js",
+          "event-audio.js",
           "config.js",
           "translations.json",
         ].includes(requested) &&

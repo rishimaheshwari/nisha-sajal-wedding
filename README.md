@@ -70,9 +70,28 @@ The original Prime Care repository and its settings are unchanged.
 The original doorway video and soundtrack are unchanged. Event illustrations are
 frames extracted at 23s, 31.5s and 42s from the user-supplied WhatsApp invitation
 video. Only scene artwork and attire guidance were reused; its other couple's
-names, dates, locations and contact details are not included. Scroll transitions
-use gentle parallax and reveal effects with a reduced-motion fallback.
+names, dates, locations and contact details are not included. Event slides use full-width artwork, native scroll snapping and slide-in effects
+with a reduced-motion fallback.
 
 The RSVP additional guest count excludes the person submitting. An attending
 response with 2 additional guests stores `plus_ones: 2` and `total_guests: 3`.
 Declining responses always store zero attendees. No dietary information is collected.
+
+## Full-screen slides and soundtrack
+
+Event scenes now fill the viewport. Native scroll snapping settles on one event
+at a time; the rest of the page remains normally scrollable. Each slide also has
+a Next link. Small landscape screens can scroll within an oversized slide to
+keep all details accessible. Slide motion is disabled for reduced-motion users.
+
+`assets/ns-monogram.svg` contains the new vector monogram. `event-audio.js`
+manages a user-enabled soundtrack: Jalandhar for Haldi, Naraina for Sangeet, and
+River Flute for the wedding. Music starts only after the invitation or music
+button is tapped, and uses 1.8-second crossfades. Muting persists across scrolling.
+Event audio is loaded only when needed; the original opening track streams.
+Sources, licenses and modifications are documented in `ASSET-CREDITS.md` and
+credited in the page footer.
+
+Browser verification covers full-width layouts at desktop and mobile sizes,
+scroll snapping, actual audio decoding, crossfade cleanup, mute behavior, and
+reduced-motion display.

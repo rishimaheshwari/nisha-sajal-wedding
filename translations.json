@@ -278,5 +278,21 @@
   "plusOnesHelp": {
     "en": "Additional guests, not including yourself. Enter 0 if it is just you.",
     "hi": "स्वयं को छोड़कर अतिरिक्त मेहमानों की संख्या। अकेले आने पर 0 दर्ज करें।"
+  },
+  "nextSangeet": {
+    "en": "Next · Sangeet",
+    "hi": "अगला · संगीत"
+  },
+  "nextWedding": {
+    "en": "Next · Wedding",
+    "hi": "अगला · विवाह"
+  },
+  "venueAndRsvp": {
+    "en": "Venue & RSVP",
+    "hi": "स्थान और RSVP"
+  },
+  "musicCredits": {
+    "en": "Music credits",
+    "hi": "संगीत का श्रेय"
   }
 }

@@ -64,77 +64,92 @@ const observer = new IntersectionObserver(
 );
 $$(".reveal").forEach((el) => observer.observe(el));
 const eventChapters = $$(".event-chapter");
-const chapterObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) =>
-      entry.target.classList.toggle("in-view", entry.isIntersecting),
-    );
-  },
-  { threshold: 0.1 },
-);
-eventChapters.forEach((el) => chapterObserver.observe(el));
-if (!reducedMotion) {
-  let scrollPending = false;
-  const animateChapters = () => {
-    eventChapters.forEach((chapter) => {
-      const rect = chapter.getBoundingClientRect();
-      if (rect.bottom > 0 && rect.top < innerHeight) {
-        const progress =
-          (innerHeight / 2 - rect.top) / (innerHeight + rect.height);
-        chapter.style.setProperty(
-          "--scene-shift",
-          `${Math.max(-16, Math.min(16, progress * 24))}px`,
-        );
-      }
-    });
-    scrollPending = false;
-  };
-  window.addEventListener(
-    "scroll",
-    () => {
-      if (!scrollPending) {
-        scrollPending = true;
-        requestAnimationFrame(animateChapters);
-      }
-    },
-    { passive: true },
-  );
-  animateChapters();
-}
-const music = new Audio("./assets/music.mp3");
-music.loop = true;
-music.volume = 0.4;
-music.preload = "none";
-const musicButton = $("button.fixed");
+const musicButton = $("#music-toggle");
+const musicDock = $("#music-dock");
+const musicContext = $("#music-context");
+const soundtrack = new EventSoundtrack(updateMusicLabel);
 function updateMusicLabel() {
+  const playing = soundtrack.enabled;
+  const labels =
+    language === "hi"
+      ? {
+          welcome: "निमंत्रण",
+          haldi: "हल्दी · सितार",
+          sangeet: "संगीत · नृत्य",
+          wedding: "विवाह · बाँसुरी",
+        }
+      : {
+          welcome: "Invitation",
+          haldi: "Haldi · Sitar",
+          sangeet: "Sangeet · Dance",
+          wedding: "Wedding · Flute",
+        };
   musicButton.setAttribute(
     "aria-label",
     language === "hi"
-      ? music.paused
-        ? "संगीत चलाएँ"
-        : "संगीत रोकें"
-      : music.paused
-        ? "Play music"
-        : "Pause music",
+      ? playing
+        ? "संगीत रोकें"
+        : "संगीत चलाएँ"
+      : playing
+        ? "Pause music"
+        : "Play music",
   );
-  musicButton.setAttribute("aria-pressed", String(!music.paused));
-  musicButton.innerHTML = music.paused
-    ? '<span aria-hidden="true" style="font-size:23px">♫</span>'
-    : '<span aria-hidden="true" style="font-size:20px">Ⅱ</span>';
+  musicButton.setAttribute("aria-pressed", String(playing));
+  musicButton.innerHTML = playing
+    ? '<span aria-hidden="true">Ⅱ</span>'
+    : '<span aria-hidden="true" style="font-size:20px">♫</span>';
+  musicContext.textContent = soundtrack.failed
+    ? language === "hi"
+      ? "फिर से चलाएँ"
+      : "Tap to retry"
+    : !playing
+      ? language === "hi"
+        ? "संगीत बंद"
+        : "Music off"
+      : soundtrack.loading
+        ? language === "hi"
+          ? "संगीत लोड हो रहा है…"
+          : "Loading music…"
+        : labels[soundtrack.scene];
+  musicDock.dataset.scene = soundtrack.scene;
+  musicDock.dataset.playing = String(playing);
+  musicDock.dataset.loading = String(soundtrack.loading);
 }
-async function playMusic() {
-  try {
-    await music.play();
-  } catch {}
-  updateMusicLabel();
+function playMusic() {
+  return soundtrack.enable();
 }
-musicButton.addEventListener("click", () => {
-  if (music.paused) playMusic();
-  else {
-    music.pause();
-    updateMusicLabel();
+musicButton.addEventListener("click", () =>
+  soundtrack.enabled ? soundtrack.stop() : playMusic(),
+);
+updateMusicLabel();
+let sceneFrame = false;
+function updateActiveScene() {
+  const middle = innerHeight * 0.5;
+  let active = null;
+  eventChapters.forEach((chapter) => {
+    const rect = chapter.getBoundingClientRect();
+    const visible =
+      rect.top < innerHeight * 0.75 && rect.bottom > innerHeight * 0.25;
+    chapter.classList.toggle("in-view", visible);
+    if (rect.top <= middle && rect.bottom > middle) active = chapter;
+  });
+  document.documentElement.classList.toggle("snap-events", Boolean(active));
+  let scene = active?.id || "welcome";
+  if (!active && eventChapters.at(-1).getBoundingClientRect().bottom <= middle)
+    scene = "wedding";
+  soundtrack.setScene(scene);
+  sceneFrame = false;
+}
+function requestSceneUpdate() {
+  if (!sceneFrame) {
+    sceneFrame = true;
+    requestAnimationFrame(updateActiveScene);
   }
-});
+}
+window.addEventListener("scroll", requestSceneUpdate, { passive: true });
+window.addEventListener("resize", requestSceneUpdate);
+window.addEventListener("pageshow", requestSceneUpdate);
+updateActiveScene();
 const hero = $("section");
 const doorButton = $("button", hero);
 doorButton.addEventListener("click", async () => {

@@ -34,6 +34,7 @@
     <link rel="icon" href="./assets/favicon.png" type="image/png" />
     <link rel="stylesheet" href="./enhancements.css" />
     <script src="./config.js" defer></script>
+    <script src="./event-audio.js" defer></script>
     <script src="./app.js" defer></script>
   </head>
   <body>
@@ -251,6 +252,15 @@
         aria-labelledby="celebrations-title"
       >
         <div class="celebrations-heading reveal">
+          <div
+            class="heading-monogram"
+            role="img"
+            aria-label="Nisha and Sajal monogram"
+          >
+            <svg class="ns-monogram" viewBox="0 0 260 300" aria-hidden="true">
+              <use href="./assets/ns-monogram.svg#mark"></use>
+            </svg>
+          </div>
           <p class="eyebrow" data-i18n="weekend">January 30 &amp; 31, 2027</p>
           <h2 id="celebrations-title" data-i18n="ourCelebrations">
             Two days. A lifetime of memories.
@@ -280,33 +290,47 @@
               loading="lazy"
               decoding="async"
             />
-            <span class="scene-mark">N &amp; S</span>
           </div>
           <div class="event-copy reveal">
-            <span class="event-number" aria-hidden="true">01</span>
-            <p class="eyebrow" data-i18n="dayOneLabel">Day One · Saturday</p>
-            <h3 id="haldi-title" data-i18n="haldi">Haldi</h3>
-            <p class="event-when" data-i18n="haldiWhen">
-              January 30, 2027 · Noon
-            </p>
-            <span class="event-rule" aria-hidden="true"></span>
-            <p class="event-story" data-i18n="haldiStory">
-              A little sunshine, a little turmeric, and a whole lot of love.
-            </p>
-            <div class="event-attire">
-              <p class="eyebrow" data-i18n="whatToWear">What to wear</p>
-              <h4 data-i18n="haldiAttire">Indian / Indo-Western</h4>
-              <p data-i18n="haldiOutfitNote">
-                Bright, joyful Indian or Indo-Western outfits for an afternoon
-                of celebration.
+            <span class="scene-mark"
+              ><svg
+                class="ns-monogram"
+                viewBox="0 0 260 300"
+                aria-hidden="true"
+              >
+                <use href="./assets/ns-monogram.svg#mark"></use></svg
+            ></span>
+            <div class="event-main">
+              <span class="event-number" aria-hidden="true">01</span>
+              <p class="eyebrow" data-i18n="dayOneLabel">Day One · Saturday</p>
+              <h3 id="haldi-title" data-i18n="haldi">Haldi</h3>
+              <p class="event-when" data-i18n="haldiWhen">
+                January 30, 2027 · Noon
+              </p>
+              <span class="event-rule" aria-hidden="true"></span>
+              <p class="event-story" data-i18n="haldiStory">
+                A little sunshine, a little turmeric, and a whole lot of love.
               </p>
             </div>
-            <a class="event-location" href="#venue"
-              ><span aria-hidden="true">⌖</span>
-              <span data-i18n="venue1">Lansdowne Resort</span>
-              <span aria-hidden="true">↗</span></a
-            >
+            <div class="event-details">
+              <div class="event-attire">
+                <p class="eyebrow" data-i18n="whatToWear">What to wear</p>
+                <h4 data-i18n="haldiAttire">Indian / Indo-Western</h4>
+                <p data-i18n="haldiOutfitNote">
+                  Bright, joyful Indian or Indo-Western outfits for an afternoon
+                  of celebration.
+                </p>
+              </div>
+              <a class="event-location" href="#venue"
+                ><span aria-hidden="true">⌖</span>
+                <span data-i18n="venue1">Lansdowne Resort</span>
+                <span aria-hidden="true">↗</span></a
+              >
+            </div>
           </div>
+          <a class="event-next" href="#sangeet"
+            ><span data-i18n="nextSangeet">Next · Sangeet</span> <span aria-hidden="true">↓</span></a
+          >
         </article>
         <article
           id="sangeet"
@@ -322,33 +346,47 @@
               loading="lazy"
               decoding="async"
             />
-            <span class="scene-mark">N &amp; S</span>
           </div>
           <div class="event-copy reveal">
-            <span class="event-number" aria-hidden="true">02</span>
-            <p class="eyebrow" data-i18n="dayOneLabel">Day One · Saturday</p>
-            <h3 id="sangeet-title" data-i18n="sangeet">Sangeet</h3>
-            <p class="event-when" data-i18n="sangeetWhen">
-              January 30, 2027 · Evening
-            </p>
-            <span class="event-rule" aria-hidden="true"></span>
-            <p class="event-story" data-i18n="sangeetStory">
-              An evening of music, dancing, and all our favourite people.
-            </p>
-            <div class="event-attire">
-              <p class="eyebrow" data-i18n="whatToWear">What to wear</p>
-              <h4 data-i18n="sangeetAttire">Western / Indo-Western</h4>
-              <p data-i18n="sangeetOutfitNote">
-                Dress up in Western or Indo-Western eveningwear and bring your
-                dancing shoes.
+            <span class="scene-mark"
+              ><svg
+                class="ns-monogram"
+                viewBox="0 0 260 300"
+                aria-hidden="true"
+              >
+                <use href="./assets/ns-monogram.svg#mark"></use></svg
+            ></span>
+            <div class="event-main">
+              <span class="event-number" aria-hidden="true">02</span>
+              <p class="eyebrow" data-i18n="dayOneLabel">Day One · Saturday</p>
+              <h3 id="sangeet-title" data-i18n="sangeet">Sangeet</h3>
+              <p class="event-when" data-i18n="sangeetWhen">
+                January 30, 2027 · Evening
+              </p>
+              <span class="event-rule" aria-hidden="true"></span>
+              <p class="event-story" data-i18n="sangeetStory">
+                An evening of music, dancing, and all our favourite people.
               </p>
             </div>
-            <a class="event-location" href="#venue"
-              ><span aria-hidden="true">⌖</span>
-              <span data-i18n="venue1">Lansdowne Resort</span>
-              <span aria-hidden="true">↗</span></a
-            >
+            <div class="event-details">
+              <div class="event-attire">
+                <p class="eyebrow" data-i18n="whatToWear">What to wear</p>
+                <h4 data-i18n="sangeetAttire">Western / Indo-Western</h4>
+                <p data-i18n="sangeetOutfitNote">
+                  Dress up in Western or Indo-Western eveningwear and bring your
+                  dancing shoes.
+                </p>
+              </div>
+              <a class="event-location" href="#venue"
+                ><span aria-hidden="true">⌖</span>
+                <span data-i18n="venue1">Lansdowne Resort</span>
+                <span aria-hidden="true">↗</span></a
+              >
+            </div>
           </div>
+          <a class="event-next" href="#wedding"
+            ><span data-i18n="nextWedding">Next · Wedding</span> <span aria-hidden="true">↓</span></a
+          >
         </article>
         <article
           id="wedding"
@@ -364,35 +402,49 @@
               loading="lazy"
               decoding="async"
             />
-            <span class="scene-mark">N &amp; S</span>
           </div>
           <div class="event-copy reveal">
-            <span class="event-number" aria-hidden="true">03</span>
-            <p class="eyebrow" data-i18n="dayTwoLabel">Day Two · Sunday</p>
-            <h3 id="wedding-title" data-i18n="weddingTitle">The Wedding</h3>
-            <p class="event-when" data-i18n="weddingWhen">
-              January 31, 2027 · Morning
-            </p>
-            <span class="event-rule" aria-hidden="true"></span>
-            <p class="event-story" data-i18n="weddingStory">
-              Together with you, we begin our forever.
-            </p>
-            <p class="event-lunch" data-i18n="followedByLunch">
-              Wedding ceremony followed by lunch
-            </p>
-            <div class="event-attire">
-              <p class="eyebrow" data-i18n="whatToWear">What to wear</p>
-              <h4 data-i18n="weddingAttire">Royal Traditionals</h4>
-              <p data-i18n="weddingOutfitNote">
-                Celebrate with us in your finest traditional wedding attire.
+            <span class="scene-mark"
+              ><svg
+                class="ns-monogram"
+                viewBox="0 0 260 300"
+                aria-hidden="true"
+              >
+                <use href="./assets/ns-monogram.svg#mark"></use></svg
+            ></span>
+            <div class="event-main">
+              <span class="event-number" aria-hidden="true">03</span>
+              <p class="eyebrow" data-i18n="dayTwoLabel">Day Two · Sunday</p>
+              <h3 id="wedding-title" data-i18n="weddingTitle">The Wedding</h3>
+              <p class="event-when" data-i18n="weddingWhen">
+                January 31, 2027 · Morning
+              </p>
+              <span class="event-rule" aria-hidden="true"></span>
+              <p class="event-story" data-i18n="weddingStory">
+                Together with you, we begin our forever.
+              </p>
+              <p class="event-lunch" data-i18n="followedByLunch">
+                Wedding ceremony followed by lunch
               </p>
             </div>
-            <a class="event-location" href="#venue"
-              ><span aria-hidden="true">⌖</span>
-              <span data-i18n="venue1">Lansdowne Resort</span>
-              <span aria-hidden="true">↗</span></a
-            >
+            <div class="event-details">
+              <div class="event-attire">
+                <p class="eyebrow" data-i18n="whatToWear">What to wear</p>
+                <h4 data-i18n="weddingAttire">Royal Traditionals</h4>
+                <p data-i18n="weddingOutfitNote">
+                  Celebrate with us in your finest traditional wedding attire.
+                </p>
+              </div>
+              <a class="event-location" href="#venue"
+                ><span aria-hidden="true">⌖</span>
+                <span data-i18n="venue1">Lansdowne Resort</span>
+                <span aria-hidden="true">↗</span></a
+              >
+            </div>
           </div>
+          <a class="event-next" href="#venue"
+            >Venue & RSVP <span aria-hidden="true">↓</span></a
+          >
         </article>
       </section>
       <section id="venue" class="px-6 py-16">
@@ -522,8 +574,59 @@
         </div>
       </section>
       <footer class="px-6 pb-14 text-center">
+        <div
+          class="footer-monogram"
+          role="img"
+          aria-label="Nisha and Sajal monogram"
+        >
+          <svg class="ns-monogram" viewBox="0 0 260 300" aria-hidden="true">
+            <use href="./assets/ns-monogram.svg#mark"></use>
+          </svg>
+        </div>
         <p class="script text-3xl text-aegean-deep">Nisha &amp; Sajal</p>
         <p class="eyebrow mt-3">Lansdowne · 30–31 January 2027</p>
+        <details class="music-credits">
+          <summary data-i18n="musicCredits">Music credits</summary>
+          <p>
+            Event instrumentals by
+            <a href="https://incompetech.com/" target="_blank" rel="noreferrer"
+              >Kevin MacLeod</a
+            >, licensed under
+            <a
+              href="https://creativecommons.org/licenses/by/4.0/"
+              target="_blank"
+              rel="noreferrer"
+              >CC BY 4.0</a
+            >.
+          </p>
+          <ul>
+            <li>
+              Haldi:
+              <a
+                href="https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1400018"
+                >Jalandhar</a
+              >
+            </li>
+            <li>
+              Sangeet:
+              <a
+                href="https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1400053"
+                >Naraina</a
+              >
+            </li>
+            <li>
+              Wedding:
+              <a
+                href="https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1900005"
+                >River Flute</a
+              >
+            </li>
+          </ul>
+          <p>
+            Shortened, volume-adjusted excerpts with fades. Original invitation
+            music retained.
+          </p>
+        </details>
       </footer>
       <div class="fixed top-4 right-4 z-50">
         <div
@@ -551,31 +654,35 @@
           </button>
         </div>
       </div>
-      <button
-        type="button"
-        aria-label="Play music"
-        class="fixed right-4 bottom-4 z-50 flex h-12 w-12 items-center justify-center rounded-full border border-aegean/30 bg-background/85 text-aegean backdrop-blur-md transition-colors hover:bg-aegean hover:text-primary-foreground"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="18"
-          height="18"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          class="lucide lucide-volume-x"
-          aria-hidden="true"
+      <div id="music-dock" class="music-dock">
+        <span id="music-context" class="music-context">Music off</span>
+        <button
+          id="music-toggle"
+          type="button"
+          aria-label="Play music"
+          class="fixed right-4 bottom-4 z-50 flex h-12 w-12 items-center justify-center rounded-full border border-aegean/30 bg-background/85 text-aegean backdrop-blur-md transition-colors hover:bg-aegean hover:text-primary-foreground"
         >
-          <path
-            d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z"
-          ></path>
-          <line x1="22" x2="16" y1="9" y2="15"></line>
-          <line x1="16" x2="22" y1="9" y2="15"></line>
-        </svg>
-      </button>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-volume-x"
+            aria-hidden="true"
+          >
+            <path
+              d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z"
+            ></path>
+            <line x1="22" x2="16" y1="9" y2="15"></line>
+            <line x1="16" x2="22" y1="9" y2="15"></line>
+          </svg>
+        </button>
+      </div>
     </main>
   </body>
 </html>
