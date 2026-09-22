@@ -75,15 +75,15 @@ function updateMusicLabel() {
     language === "hi"
       ? {
           welcome: "निमंत्रण",
-          haldi: "हल्दी · सितार",
+          haldi: "हल्दी · बाँसुरी",
           sangeet: "संगीत · पियानो",
-          wedding: "विवाह · बाँसुरी",
+          wedding: "विवाह · हार्प",
         }
       : {
           welcome: "Invitation",
-          haldi: "Haldi · Sitar",
+          haldi: "Haldi · Flutes",
           sangeet: "Sangeet · Piano",
-          wedding: "Wedding · Flute",
+          wedding: "Wedding · Harps",
         };
   musicButton.setAttribute(
     "aria-label",

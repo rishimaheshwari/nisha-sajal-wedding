@@ -45,9 +45,11 @@ class EventSoundtrack {
   }
   async buffer(scene) {
     if (!this.buffers.has(scene)) {
-      const filename = scene === "sangeet"
-        ? "sangeet-dream-culture.mp3"
-        : `${scene}-music.mp3`;
+      const filename = {
+        haldi: "sample-wedding-morning.mp3",
+        sangeet: "sangeet-dream-culture.mp3",
+        wedding: "sample-wedding-canon.mp3",
+      }[scene];
       const promise = fetch(`./assets/${filename}`)
         .then((response) => {
           if (!response.ok) throw new Error("Audio unavailable");
