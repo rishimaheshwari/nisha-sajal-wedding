@@ -1,11 +1,23 @@
 # Added artwork and event music
 
-## Monogram
+## Monogram and hashtag
 
-The N&S monogram is an original vector arrangement with a lotus, fine oval frame,
-leaf flourishes, and calligraphic initials. Letter outlines use Great Vibes by
-Robert E. Leuschke, distributed under the SIL Open Font License:
-https://github.com/google/fonts/tree/main/ofl/greatvibes
+`assets/sajni-monogram.png` is a transparent derivative of the N–heart–S logo in
+the user's supplied September 22 save-the-date invitation. It replaces the old
+lotus/oval monogram in the celebrations heading, three event cards, footer and
+browser icon. CSS uses its alpha channel as a mask, with dusty rose on light
+surfaces and light rose on the dark Sangeet card. The hashtag is `#SajNi`.
+
+Prepared with the built-in imagegen tool from:
+`codex-clipboard-53529d3b-fa3b-461c-9a9d-71c48a417262.png`.
+
+Final edit prompt:
+
+> Use the attached invitation as the edit target. Extract ONLY the exact central dusty-rose handwritten N and S monogram, including the small integrated heart connecting the two letters. Preserve the original calligraphic letter shapes, stroke weight variation, long tall N upstroke, wide looping S, heart connection and overall proportions as faithfully as possible. Do not redesign, simplify, add or rearrange any part of this monogram. Remove all surrounding words, date, hashtag, floral illustrations, gold frame, paper texture, shadows and background. Return just this N-heart-S mark in its original flat muted dusty rose color (#b78372 approximately), centered on a genuinely transparent alpha background, tightly framed with a small even margin around the full mark. Output a clean high resolution transparent PNG asset suitable for website branding; no text other than the monogram, no mockup, no checkerboard baked into the image.
+
+The older `assets/ns-monogram.svg` remains an unused archived asset. Its letter
+outlines used Great Vibes by Robert E. Leuschke, distributed under the SIL Open
+Font License: https://github.com/google/fonts/tree/main/ofl/greatvibes
 
 ## Event instrumentals
 

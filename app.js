@@ -111,7 +111,7 @@ function updateMusicLabel() {
         ? language === "hi"
           ? "संगीत लोड हो रहा है…"
           : "Loading music…"
-        : labels[soundtrack.scene];
+        : soundtrack.backgroundMusic?.title || labels[soundtrack.scene];
   musicDock.dataset.scene = soundtrack.scene;
   musicDock.dataset.playing = String(playing);
   musicDock.dataset.loading = String(soundtrack.loading);

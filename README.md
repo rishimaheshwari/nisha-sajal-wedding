@@ -84,7 +84,8 @@ at a time; the rest of the page remains normally scrollable. Each slide also has
 a Next link. Small landscape screens can scroll within an oversized slide to
 keep all details accessible. Slide motion is disabled for reduced-motion users.
 
-`assets/ns-monogram.svg` contains the new vector monogram. `event-audio.js`
+`assets/sajni-monogram.png` contains the N–heart–S monogram from the supplied
+save-the-date invitation. It replaces the earlier vector monogram. `event-audio.js`
 manages a user-enabled soundtrack: Morning for Haldi, Dream Culture for Sangeet, and
 Canon in D for Two Harps for the wedding. Music starts only after the invitation or music
 button is tapped, and uses 1.8-second crossfades. Muting persists across scrolling.
@@ -123,3 +124,18 @@ Canon in D for Two Harps (90 seconds) for the wedding. All three are active on
 the invitation. The combined 131.4-second preview uses 1.8-second crossfades,
 matching the event player. Each recording has visible attribution and a
 full-track link.
+
+## #SajNi branding and continuous music
+
+The supplied monogram appears on each event slide, the celebrations heading and
+footer, with `#SajNi` in the invitation, celebrations heading, RSVP and footer.
+The browser icon uses the supplied monogram too.
+
+The player supports one uninterrupted background recording across all sections
+when `WEDDING_CONFIG.backgroundMusic` contains `{ src, title }`. The same audio
+element and playback position persist through scrolling, pause and resume.
+Playback begins only after the guest opens the invitation or presses Play.
+
+The requested Sajni Re instrumental is **not configured yet**: a suitable audio
+file or direct audio URL is still needed. Until supplied, the existing event
+tracks remain active. No streaming audio has been extracted or relabeled.

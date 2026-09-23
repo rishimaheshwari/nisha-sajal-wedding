@@ -1,4 +1,4 @@
-// A user-enabled soundtrack with lazy loading and cancellable crossfades.
+// A user-enabled soundtrack with optional continuous playback across all scenes.
 // Event buffers play through the already-unlocked AudioContext on mobile.
 class EventSoundtrack {
   constructor(onChange) {
@@ -11,7 +11,11 @@ class EventSoundtrack {
     this.revision = 0;
     this.voices = new Map();
     this.buffers = new Map();
-    this.welcomeAudio = new Audio("./assets/music.mp3");
+    const configuredMusic = window.WEDDING_CONFIG?.backgroundMusic;
+    this.backgroundMusic = configuredMusic?.src ? configuredMusic : null;
+    this.welcomeAudio = new Audio(
+      this.backgroundMusic?.src || "./assets/music.mp3",
+    );
     this.welcomeAudio.loop = true;
     this.welcomeAudio.preload = "none";
   }
@@ -90,44 +94,46 @@ class EventSoundtrack {
     if (this.voices.get(scene) === voice) this.voices.delete(scene);
   }
   async transition(scene) {
+    // A shared recording uses one media element and keeps its playback position.
+    const audioScene = this.backgroundMusic?.src ? "welcome" : scene;
     const revision = ++this.revision;
     this.loading = true;
     this.failed = false;
     this.onChange();
     try {
-      let voice = this.voices.get(scene);
+      let voice = this.voices.get(audioScene);
       const buffer =
-        scene === "welcome" || voice ? null : await this.buffer(scene);
+        audioScene === "welcome" || voice ? null : await this.buffer(audioScene);
       if (revision !== this.revision || !this.enabled) return;
       if (!voice) {
         const gain = this.context.createGain();
         gain.gain.value = 0;
         gain.connect(this.context.destination);
         const source =
-          scene === "welcome"
+          audioScene === "welcome"
             ? this.welcomeSource
             : this.context.createBufferSource();
-        if (scene !== "welcome") {
+        if (audioScene !== "welcome") {
           source.buffer = buffer;
           source.loop = true;
         }
         source.connect(gain);
         voice = { gain, source, timer: null };
-        this.voices.set(scene, voice);
-        if (scene !== "welcome") source.start();
+        this.voices.set(audioScene, voice);
+        if (audioScene !== "welcome") source.start();
       }
       clearTimeout(voice.timer);
-      if (scene === "welcome") await this.welcomeAudio.play();
+      if (audioScene === "welcome") await this.welcomeAudio.play();
       if (revision !== this.revision || !this.enabled) {
         // A later transition or mute owns cleanup of an existing voice.
-        if (!this.enabled && this.voices.get(scene) === voice)
-          this.dispose(scene, voice);
+        if (!this.enabled && this.voices.get(audioScene) === voice)
+          this.dispose(audioScene, voice);
         return;
       }
       const duration = 1.8;
-      this.ramp(voice, scene === "welcome" ? 0.4 : 0.7, duration);
+      this.ramp(voice, audioScene === "welcome" ? 0.4 : 0.7, duration);
       for (const [key, other] of this.voices) {
-        if (key === scene) continue;
+        if (key === audioScene) continue;
         clearTimeout(other.timer);
         this.ramp(other, 0, duration);
         other.timer = setTimeout(
