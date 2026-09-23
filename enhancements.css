@@ -475,10 +475,18 @@ input:disabled {
 }
 .music-dock #music-toggle {
   position: static;
+  flex-shrink: 0;
   width: 36px;
   height: 36px;
   border: 0;
   background: transparent;
+  color: #1e2a4f;
+  cursor: pointer;
+}
+.music-dock #music-toggle:hover,
+.music-dock #music-toggle:focus-visible {
+  background: #1e2a4f;
+  color: #fff;
 }
 .music-credits {
   margin: 24px auto 0;

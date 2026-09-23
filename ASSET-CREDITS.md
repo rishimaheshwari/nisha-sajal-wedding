@@ -41,6 +41,16 @@ The original invitation doorway video, images, and opening soundtrack from the
 reference site are unchanged. The event illustrations are the previously
 extracted frames from the video supplied by the user.
 
+## RSVP instrumental
+
+`assets/rsvp-sajni-re.mp3` is prepared from the user-supplied
+`O Sajni Re Instrumental.mp3`, received September 22, 2026. It contains the full
+31.02-second clip, with volume reduced by 7 dB, a 0.6-second fade-in and a
+1.2-second fade-out, encoded as a 128 kb/s stereo MP3. The player loops it in
+the RSVP section and crossfades to and from the other section tracks.
+This recording is separate from the Kevin MacLeod recordings above; no creator
+or license metadata was supplied with the file.
+
 ## Optional soundtrack audition
 
 Earlier audition assets retain these Kevin MacLeod recordings, also licensed

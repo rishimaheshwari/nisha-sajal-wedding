@@ -53,6 +53,7 @@ class EventSoundtrack {
         haldi: "sample-wedding-morning.mp3",
         sangeet: "sangeet-dream-culture.mp3",
         wedding: "sample-wedding-canon.mp3",
+        rsvp: "rsvp-sajni-re.mp3",
       }[scene];
       const promise = fetch(`./assets/${filename}`)
         .then((response) => {

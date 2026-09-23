@@ -65,6 +65,7 @@ const observer = new IntersectionObserver(
 );
 $$(".reveal").forEach((el) => observer.observe(el));
 const eventChapters = $$(".event-chapter");
+const rsvpSection = $("#rsvp");
 const musicButton = $("#music-toggle");
 const musicDock = $("#music-dock");
 const musicContext = $("#music-context");
@@ -78,12 +79,14 @@ function updateMusicLabel() {
           haldi: "हल्दी · बाँसुरी",
           sangeet: "संगीत · पियानो",
           wedding: "विवाह · हार्प",
+          rsvp: "उपस्थिति · ओ सजनी रे",
         }
       : {
           welcome: "Invitation",
           haldi: "Haldi · Flutes",
           sangeet: "Sangeet · Piano",
           wedding: "Wedding · Harps",
+          rsvp: "RSVP · O Sajni Re",
         };
   musicButton.setAttribute(
     "aria-label",
@@ -138,6 +141,8 @@ function updateActiveScene() {
   let scene = active?.id || "welcome";
   if (!active && eventChapters.at(-1).getBoundingClientRect().bottom <= middle)
     scene = "wedding";
+  if (!active && rsvpSection.getBoundingClientRect().top <= middle)
+    scene = "rsvp";
   soundtrack.setScene(scene);
   sceneFrame = false;
 }
