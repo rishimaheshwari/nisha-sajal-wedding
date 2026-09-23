@@ -34,7 +34,7 @@ const rsvpLabels = {
     privateNote: "Your reply will be saved privately for the wedding organizers.", localNote: "Development preview: replies are saved locally.",
     thankYou: "Thank You", confirmation: "Your RSVP is confirmed", declined: "Unable to attend", summary: "Your party’s attendance",
     haldi: "Haldi", sangeet: "Sangeet", wedding: "Wedding & lunch",
-    haldiDetails: "Jan 30 · Noon · Terrace Ballroom", sangeetDetails: "Jan 30 · Evening · Clubhouse Ballroom", weddingDetails: "Jan 31 · Morning, followed by lunch · Clubhouse",
+    haldiDetails: "Jan 30 · 11am · Terrace Ballroom", sangeetDetails: "Jan 30 · 6pm onwards · Clubhouse Ballroom", weddingDetails: "Jan 31 · 10am, followed by lunch · Clubhouse",
   },
   hi: {
     intro: "अपने और अपने मेहमानों के लिए उत्तर दें। हर व्यक्ति जिन कार्यक्रमों में आएगा, उन्हें चुनें।",
@@ -46,7 +46,7 @@ const rsvpLabels = {
     privateNote: "आपका उत्तर शादी के आयोजकों के लिए निजी रूप से सहेजा जाएगा।", localNote: "डेवलपमेंट प्रीव्यू: उत्तर स्थानीय रूप से सहेजे जाते हैं।",
     thankYou: "धन्यवाद", confirmation: "आपके RSVP की पुष्टि हो गई है", declined: "नहीं आ सकेंगे", summary: "आपके समूह की उपस्थिति",
     haldi: "हल्दी", sangeet: "संगीत", wedding: "विवाह और दोपहर का भोजन",
-    haldiDetails: "३० जनवरी · दोपहर · टेरेस बॉलरूम", sangeetDetails: "३० जनवरी · शाम · क्लबहाउस बॉलरूम", weddingDetails: "३१ जनवरी · सुबह, फिर दोपहर का भोजन · क्लबहाउस",
+    haldiDetails: "३० जनवरी · सुबह ११ बजे · टेरेस बॉलरूम", sangeetDetails: "३० जनवरी · शाम ६ बजे से · क्लबहाउस बॉलरूम", weddingDetails: "३१ जनवरी · सुबह १० बजे, फिर दोपहर का भोजन · क्लबहाउस",
   },
 };
 const rsvpCopy = {

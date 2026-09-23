@@ -188,16 +188,16 @@
     "hi": "दूसरा दिन · रविवार"
   },
   "haldiWhen": {
-    "en": "January 30, 2027 · Noon",
-    "hi": "३० जनवरी, २०२७ · दोपहर"
+    "en": "January 30, 2027 · 11am",
+    "hi": "३० जनवरी, २०२७ · सुबह ११ बजे"
   },
   "sangeetWhen": {
-    "en": "January 30, 2027 · Evening",
-    "hi": "३० जनवरी, २०२७ · शाम"
+    "en": "January 30, 2027 · 6pm onwards",
+    "hi": "३० जनवरी, २०२७ · शाम ६ बजे से"
   },
   "weddingWhen": {
-    "en": "January 31, 2027 · Morning",
-    "hi": "३१ जनवरी, २०२७ · सुबह"
+    "en": "January 31, 2027 · 10am",
+    "hi": "३१ जनवरी, २०२७ · सुबह १० बजे"
   },
   "haldiStory": {
     "en": "In the shower of golden hues,\nLet love and laughter infuse.",
@@ -232,8 +232,8 @@
     "hi": "शाही पारंपरिक परिधान"
   },
   "haldiOutfitNote": {
-    "en": "Bright, joyful Indian or Indo-Western outfits for an afternoon of celebration.",
-    "hi": "दोपहर के उत्सव के लिए रंगीन भारतीय या इंडो-वेस्टर्न परिधान।"
+    "en": "Bright, joyful Indian or Indo-Western outfits for a morning of celebration.",
+    "hi": "सुबह के उत्सव के लिए रंगीन भारतीय या इंडो-वेस्टर्न परिधान।"
   },
   "sangeetOutfitNote": {
     "en": "Dress up in Western or Indo-Western eveningwear and bring your dancing shoes.",

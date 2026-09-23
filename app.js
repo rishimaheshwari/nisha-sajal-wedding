@@ -4,7 +4,7 @@ const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
 let language = "en";
 let translations = {};
 const textBindings = [];
-fetch("./translations.json")
+fetch("./translations.json?v=event-times")
   .then((r) => r.json())
   .then((data) => {
     translations = data;
@@ -205,7 +205,7 @@ const countdown = $("#countdown");
 function tick() {
   const total = Math.max(
     0,
-    Math.floor((new Date("2027-01-30T12:00:00-05:00") - Date.now()) / 1000),
+    Math.floor((new Date("2027-01-30T11:00:00-05:00") - Date.now()) / 1000),
   );
   const values = [
     Math.floor(total / 86400),
