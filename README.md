@@ -16,7 +16,7 @@ Open http://localhost:5173. Set `PORT` to use another port.
 
 - Animated invitation doorway and background music toggle
 - English/Hindi text switch
-- Gold scratch circles, with Enter/Space keyboard support
+- A compact second slide with gold scratch circles and the countdown beneath, leading directly into Haldi; Enter/Space keyboard support for the scratch reveal
 - Countdown to the celebrations on January 30, 2027 at 11am in Virginia
 - Venue map link, event dress codes, and RSVP
 - Named party RSVPs, per-guest event choices, Supabase storage and Gmail confirmation emails

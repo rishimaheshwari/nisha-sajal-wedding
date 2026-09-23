@@ -32,10 +32,10 @@
       crossorigin="anonymous"
     />
     <link rel="icon" href="./assets/sajni-monogram.png" type="image/png" />
-    <link rel="stylesheet" href="./enhancements.css?v=mobile-type" />
+    <link rel="stylesheet" href="./enhancements.css?v=compact-reveal" />
     <script src="./config.js" defer></script>
     <script src="./event-audio.js?v=sajni-continuous" defer></script>
-    <script src="./app.js?v=event-times" defer></script>
+    <script src="./app.js?v=compact-reveal" defer></script>
     <script src="./rsvp.js?v=event-times" defer></script>
   </head>
   <body>
@@ -124,8 +124,8 @@
           >
         </button>
       </section>
-      <section id="intro" class="px-6 pt-24 pb-10">
-        <div class="reveal mx-auto max-w-md text-center">
+      <section id="intro" class="invitation-reveal">
+        <div class="intro-heading reveal mx-auto max-w-md text-center">
           <p
             class="text-sm leading-relaxed tracking-wide text-muted-foreground"
           >
@@ -137,12 +137,12 @@
           <p class="wedding-hashtag" lang="en" translate="no">#SajNi</p>
           <div class="mx-auto mt-6 h-px w-20 bg-gold/60"></div>
         </div>
-        <div class="reveal mx-auto mt-16 max-w-md text-center">
+        <div class="scratch-reveal reveal mx-auto max-w-md text-center">
           <h3 class="text-2xl text-aegean-deep">
             Scratch to discover the date
           </h3>
           <p class="eyebrow mt-3">Swipe across the gold</p>
-          <div class="mt-8 flex items-center justify-center gap-3">
+          <div class="scratch-circles flex items-center justify-center gap-3">
             <div
               class="relative shrink-0 overflow-hidden rounded-full border border-gold/50"
               style="
@@ -211,39 +211,39 @@
             </div>
           </div>
           <p
-            class="mt-8 font-display text-2xl text-gold transition-all duration-1000 translate-y-2 opacity-0"
+            class="revealed-date font-display text-2xl text-gold transition-all duration-1000 translate-y-2 opacity-0"
           >
             January 31, 2027
           </p>
         </div>
-      </section>
-      <section id="countdown" class="px-6 py-20">
-        <div class="reveal mx-auto max-w-md text-center">
-          <p class="eyebrow">Until the celebrations begin</p>
-          <div class="countdown-grid mt-7 grid grid-cols-4 gap-2.5">
-            <div class="surface-card rounded-sm py-4">
-              <div class="font-display text-3xl tabular-nums text-aegean-deep">
-                ––
+        <div id="countdown">
+          <div class="reveal mx-auto max-w-md text-center">
+            <p class="eyebrow">Until the celebrations begin</p>
+            <div class="countdown-grid mt-7 grid grid-cols-4 gap-2.5">
+              <div class="surface-card rounded-sm py-4">
+                <div class="font-display text-3xl tabular-nums text-aegean-deep">
+                  ––
+                </div>
+                <div class="eyebrow mt-1 text-[0.52rem]">Days</div>
               </div>
-              <div class="eyebrow mt-1 text-[0.52rem]">Days</div>
-            </div>
-            <div class="surface-card rounded-sm py-4">
-              <div class="font-display text-3xl tabular-nums text-aegean-deep">
-                ––
+              <div class="surface-card rounded-sm py-4">
+                <div class="font-display text-3xl tabular-nums text-aegean-deep">
+                  ––
+                </div>
+                <div class="eyebrow mt-1 text-[0.52rem]">Hours</div>
               </div>
-              <div class="eyebrow mt-1 text-[0.52rem]">Hours</div>
-            </div>
-            <div class="surface-card rounded-sm py-4">
-              <div class="font-display text-3xl tabular-nums text-aegean-deep">
-                ––
+              <div class="surface-card rounded-sm py-4">
+                <div class="font-display text-3xl tabular-nums text-aegean-deep">
+                  ––
+                </div>
+                <div class="eyebrow mt-1 text-[0.52rem]">Minutes</div>
               </div>
-              <div class="eyebrow mt-1 text-[0.52rem]">Minutes</div>
-            </div>
-            <div class="surface-card rounded-sm py-4">
-              <div class="font-display text-3xl tabular-nums text-aegean-deep">
-                ––
+              <div class="surface-card rounded-sm py-4">
+                <div class="font-display text-3xl tabular-nums text-aegean-deep">
+                  ––
+                </div>
+                <div class="eyebrow mt-1 text-[0.52rem]">Seconds</div>
               </div>
-              <div class="eyebrow mt-1 text-[0.52rem]">Seconds</div>
             </div>
           </div>
         </div>
@@ -251,32 +251,8 @@
       <section
         id="celebrations"
         class="celebrations"
-        aria-labelledby="celebrations-title"
+        aria-label="Wedding celebrations"
       >
-        <div class="celebrations-heading reveal">
-          <div
-            class="heading-monogram"
-            role="img"
-            aria-label="Nisha and Sajal monogram"
-          >
-            <span class="ns-monogram" aria-hidden="true"></span>
-          </div>
-          <p class="wedding-hashtag" lang="en" translate="no">#SajNi</p>
-          <p class="eyebrow" data-i18n="weekend">January 30 &amp; 31, 2027</p>
-          <h2 id="celebrations-title" data-i18n="ourCelebrations">
-            Two days. A lifetime of memories.
-          </h2>
-          <p data-i18n="celebrationsIntro">
-            Celebrate every beautiful beginning with Nisha &amp; Sajal.
-          </p>
-          <nav class="event-links" aria-label="Wedding events">
-            <a href="#haldi" data-i18n="haldi">Haldi</a
-            ><span aria-hidden="true">♡</span>
-            <a href="#sangeet" data-i18n="sangeet">Sangeet</a
-            ><span aria-hidden="true">♡</span>
-            <a href="#wedding" data-i18n="wedding">Wedding</a>
-          </nav>
-        </div>
         <article
           id="haldi"
           class="event-chapter event-haldi"
@@ -311,8 +287,7 @@
                 <p class="eyebrow" data-i18n="whatToWear">What to wear</p>
                 <h4 data-i18n="haldiAttire">Indian / Indo-Western</h4>
                 <p data-i18n="haldiOutfitNote">
-                  Bright, joyful Indian or Indo-Western outfits for a morning
-                  of celebration.
+                  Bright Indo-Western outfits for an afternoon of celebration
                 </p>
               </div>
               <a class="event-location" href="https://lansdowneresort.com/" target="_blank" rel="noopener noreferrer"
