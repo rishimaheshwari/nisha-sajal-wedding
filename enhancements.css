@@ -91,6 +91,58 @@ button:disabled {
   color: #355a45;
   font-size: 23px;
 }
+.rsvp-intro, .rsvp-event-help, .rsvp-confirmation-intro {
+  color: #7a6e7e;
+  font-size: 13px;
+  line-height: 1.7;
+}
+.rsvp-guests { display: grid; gap: 24px; }
+.rsvp-guest-card {
+  position: relative;
+  min-width: 0;
+  border: 1px solid #ded5c7;
+  border-radius: 12px;
+  padding: 24px 20px 20px;
+  display: grid;
+  gap: 20px;
+  background: #fbf8f0;
+}
+.rsvp-guest-card > legend { padding: 0 10px; font-size: 17px; color: #1e2a4f; }
+.rsvp-text-input {
+  width: 100%; min-width: 0; background: #fff; color: #1e2a4f;
+  border: 1px solid #ded5c7; border-radius: 3px; padding: 12px 14px; font-size: 16px;
+}
+.rsvp-text-input:focus-visible { outline: 2px solid #a58b58; outline-offset: 2px; }
+.rsvp-remove-guest {
+  justify-self: end; padding: 4px 8px; color: #886551; font-size: 12px;
+  cursor: pointer; text-decoration: underline; text-underline-offset: 3px;
+}
+.rsvp-event-options { min-width: 0; display: grid; gap: 10px; border: 0; padding: 0; }
+.rsvp-event-options[hidden], .rsvp-remove-guest[hidden] { display: none; }
+.rsvp-event-options > legend { margin-bottom: 8px; line-height: 1.7; }
+.rsvp-event-help { font-size: 12px; }
+.rsvp-event-choice {
+  display: flex; align-items: flex-start; gap: 12px; padding: 14px 12px;
+  border: 1px solid #e4dbce; border-radius: 7px; background: #fffdf9; cursor: pointer;
+}
+.rsvp-event-choice:has(input:checked) { background: #f1f2e8; border-color: #a7ae8b; }
+.rsvp-event-choice input { width: 18px; height: 18px; flex: 0 0 18px; margin-top: 3px; accent-color: #1e2a4f; cursor: pointer; }
+.rsvp-event-choice strong { display: block; color: #1e2a4f; font-size: 14px; font-weight: 500; }
+.rsvp-event-choice small { display: block; color: #7a6e7e; font-size: 11px; line-height: 1.6; margin-top: 4px; }
+.rsvp-add-guest {
+  padding: 14px; border: 1px dashed #b59a7d; border-radius: 7px;
+  color: #1e2a4f; font-size: 14px; cursor: pointer; background: #fbf8f0;
+}
+.rsvp-add-guest:hover { background: #efe7d9; }
+.rsvp-add-guest:disabled, .rsvp-remove-guest:disabled { cursor: not-allowed; opacity: .55; }
+.rsvp-party-summary { padding: 18px; border-radius: 8px; background: #eee9de; color: #625866; font-size: 12px; }
+.rsvp-party-summary p { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin: 5px 0; }
+.rsvp-party-summary strong { color: #1e2a4f; font-size: 15px; }
+.rsvp-confirmation-intro { margin: 20px 0; }
+.rsvp-confirmed-guest { text-align: left; padding: 16px 0; border-bottom: 1px solid #ded5c7; overflow-wrap: anywhere; }
+.rsvp-confirmed-guest strong { color: #1e2a4f; font-size: 15px; }
+.rsvp-confirmed-guest p, .rsvp-confirmed-counts { color: #7a6e7e; font-size: 12px; line-height: 1.8; margin-top: 6px; }
+.rsvp-confirmed-counts { margin: 20px 0; }
 html[lang="hi"] .script {
   font-family: serif;
   line-height: 1.4;

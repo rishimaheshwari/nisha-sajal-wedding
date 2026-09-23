@@ -2,10 +2,12 @@ import http from "node:http";
 import { readFile, mkdir, appendFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
-import { randomUUID, webcrypto } from "node:crypto";
-import { createNameKey } from "./rsvp-identity.mjs";
+import { webcrypto } from "node:crypto";
+import { validateRsvp, rsvpCounts, createRequestKey } from "./rsvp-model.mjs";
 const root = fileURLToPath(new URL(".", import.meta.url));
 const port = Number(process.env.PORT || 5173);
+let storedReplies;
+let saveQueue = Promise.resolve();
 const mime = {
   ".html": "text/html; charset=utf-8",
   ".css": "text/css",
@@ -26,7 +28,7 @@ http
         let body = "";
         for await (const chunk of req) {
           body += chunk;
-          if (body.length > 16384) {
+          if (body.length > 131072) {
             res.writeHead(413);
             res.end();
             return;
@@ -40,42 +42,40 @@ http
           res.end();
           return;
         }
-        if (
-          !data ||
-          typeof data.name !== "string" ||
-          !data.name.trim() ||
-          data.name.length > 200 ||
-          !["Yes", "No"].includes(data.attending) ||
-          !Number.isInteger(data.plusOnes) ||
-          data.plusOnes < 0 ||
-          data.plusOnes > 99 ||
-          ["song"].some(
-            (k) =>
-              data[k] !== undefined &&
-              (typeof data[k] !== "string" || data[k].length > 2000),
-          )
-        ) {
-          res.writeHead(400);
-          res.end("Invalid response");
+        let reply;
+        try {
+          reply = validateRsvp(data);
+          if (!/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(data.submissionId)) throw new Error("Invalid ID");
+        } catch {
+          res.writeHead(400, { "Content-Type": "application/json" });
+          res.end(JSON.stringify({ ok: false, error: "Invalid RSVP" }));
           return;
         }
-        const record = {
-          id: randomUUID(),
-          createdAt: new Date().toISOString(),
-          name: data.name.trim(),
-          nameKey: await createNameKey(data.name, webcrypto.subtle),
-          attending: data.attending,
-          plusOnes: data.attending === "Yes" ? data.plusOnes : 0,
-          totalGuests: data.attending === "Yes" ? data.plusOnes + 1 : 0,
-          song: data.song || "",
+        const payloadKey = await createRequestKey(reply, webcrypto.subtle);
+        // Load saved IDs once and serialize writes to make retries idempotent.
+        const save = async () => {
+          if (!storedReplies) {
+            let saved = "";
+            try { saved = await readFile(path.join(root, "data/rsvps.jsonl"), "utf8"); }
+            catch (error) { if (error.code !== "ENOENT") throw error; }
+            storedReplies = new Map(saved.split("\n").filter(Boolean).map((line) => {
+              const record = JSON.parse(line); return [record.id, record.payloadKey];
+            }));
+          }
+          if (storedReplies.has(data.submissionId)) {
+            if (storedReplies.get(data.submissionId) !== payloadKey) throw new Error("Conflicting reply");
+            return;
+          }
+          const record = { id: data.submissionId, createdAt: new Date().toISOString(), payloadKey, ...reply, ...rsvpCounts(reply.guests) };
+          await mkdir(path.join(root, "data"), { recursive: true });
+          await appendFile(path.join(root, "data/rsvps.jsonl"), JSON.stringify(record) + "\n");
+          storedReplies.set(data.submissionId, payloadKey);
         };
-        await mkdir(path.join(root, "data"), { recursive: true });
-        await appendFile(
-          path.join(root, "data/rsvps.jsonl"),
-          JSON.stringify(record) + "\n",
-        );
+        const result = saveQueue.then(save);
+        saveQueue = result.catch(() => {});
+        await result;
         res.writeHead(201, { "Content-Type": "application/json" });
-        res.end(JSON.stringify({ ok: true }));
+        res.end(JSON.stringify({ ok: true, submission_id: data.submissionId }));
         return;
       }
       if (!["GET", "HEAD"].includes(req.method)) {
@@ -94,6 +94,8 @@ http
           "app.js",
           "event-audio.js",
           "rsvp-identity.mjs",
+          "rsvp-model.mjs",
+          "rsvp.js",
           "config.js",
           "translations.json",
         ].includes(requested) &&

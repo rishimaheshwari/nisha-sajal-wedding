@@ -36,6 +36,7 @@
     <script src="./config.js" defer></script>
     <script src="./event-audio.js" defer></script>
     <script src="./app.js" defer></script>
+    <script src="./rsvp.js" defer></script>
   </head>
   <body>
     <main class="relative min-h-screen bg-background">
@@ -481,64 +482,23 @@
               Please RSVP by December 31st, 2026
             </p>
           </div>
-          <form class="mt-9 grid gap-4">
-            <label class="grid gap-2"
-              ><span class="eyebrow">Full Name</span
-              ><input
-                required=""
-                maxlength="200"
-                autocomplete="name"
-                class="w-full rounded-sm border border-input bg-card px-4 py-3 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground/70 focus:border-aegean"
-                name="name" /></label
-            ><label class="grid gap-2"
-              ><span class="eyebrow">Will you attend?</span
-              ><select
-                required=""
-                name="attending"
-                class="w-full rounded-sm border border-input bg-card px-4 py-3 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground/70 focus:border-aegean"
-              >
-                <option value="" disabled="" selected="">Select</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
-              </select></label
-            ><label class="grid gap-2"
-              ><span class="eyebrow" data-i18n="plusOnes"
-                >How many +1s are joining you?</span
-              >
-              <input
-                type="number"
-                name="plusOnes"
-                value="0"
-                min="0"
-                step="1"
-                max="99"
-                required
-                inputmode="numeric"
-                aria-describedby="plus-ones-help"
-                class="w-full rounded-sm border border-input bg-card px-4 py-3 text-sm text-foreground outline-none focus:border-aegean"
-              />
-              <span
-                id="plus-ones-help"
-                class="text-xs text-muted-foreground"
-                data-i18n="plusOnesHelp"
-                >Additional guests, not including yourself. Enter 0 if it is
-                just you.</span
-              > </label
-            ><label class="grid gap-2"
-              ><span class="eyebrow"
-                >What song will get you on the dance floor?</span
-              ><input
-                class="w-full rounded-sm border border-input bg-card px-4 py-3 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground/70 focus:border-aegean"
-                name="song"
-                maxlength="2000" /></label
-            ><button
-              type="submit"
-              id="rsvp-submit-btn"
-              aria-describedby="rsvp-status"
-              class="mt-3 rounded-sm bg-aegean px-6 py-4 text-xs tracking-[0.28em] text-primary-foreground uppercase"
-            >
-              Confirm
-            </button>
+          <form id="rsvp-form" class="mt-9 grid gap-4">
+            <p class="rsvp-intro" data-rsvp-label="intro">Reply for yourself and your guests. Choose the events each person will attend.</p>
+            <label class="grid gap-2">
+              <span class="eyebrow" data-rsvp-label="email">Email address</span>
+              <input type="email" name="email" autocomplete="email" required maxlength="254" class="rsvp-text-input" aria-describedby="rsvp-email-help" />
+              <span id="rsvp-email-help" class="rsvp-event-help" data-rsvp-label="emailHelp">One email address for this RSVP.</span>
+            </label>
+            <div id="rsvp-guests" class="rsvp-guests"></div>
+            <button type="button" id="add-guest" class="rsvp-add-guest" data-rsvp-label="addGuest">+ Add guest</button>
+            <div id="rsvp-party-summary" class="rsvp-party-summary" aria-live="polite" aria-atomic="true"></div>
+            <label class="grid gap-2">
+              <span class="eyebrow" data-rsvp-label="song">What song will get you on the dance floor?</span>
+              <input name="song" maxlength="2000" class="w-full rounded-sm border border-input bg-card px-4 py-3 text-sm text-foreground outline-none focus:border-aegean" />
+            </label>
+            <button type="submit" id="rsvp-submit-btn" aria-describedby="rsvp-status" class="mt-3 rounded-sm bg-aegean px-6 py-4 text-xs tracking-[0.28em] text-primary-foreground uppercase">Confirm</button>
+            <p id="rsvp-status" class="rsvp-status" role="status" aria-live="polite" aria-atomic="true"></p>
+            <p id="rsvp-note" class="text-xs text-muted-foreground"></p>
           </form>
         </div>
       </section>

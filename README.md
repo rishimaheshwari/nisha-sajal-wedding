@@ -19,47 +19,48 @@ Open http://localhost:5173. Set `PORT` to use another port.
 - Gold scratch circles, with Enter/Space keyboard support
 - Countdown to the celebrations on January 30, 2027 at noon in Virginia
 - Venue map link, event dress codes, and RSVP
-- RSVP validation, Web3Forms submission on GitHub Pages, and local storage in development
+- Named party RSVPs, per-guest event choices, Supabase storage and Gmail confirmation emails
 - Scroll reveals, confetti, responsive layout, and reduced-motion support
 
 ## Editing
 
 - `index.html`: content and layout
-- `app.js`: interactive behavior
+- `app.js`: invitation behavior
+- `rsvp.js` and `rsvp-model.mjs`: group RSVP form, validation and submission
 - `styles.css`: reference site's compiled stylesheet
 - `enhancements.css`: accessibility and small-screen adjustments
 - `translations.json`: English/Hindi strings; update matching English HTML when editing a translation
 - `assets/`: reference media
 - `server.mjs`: static serving and local RSVP endpoint
-- `rsvp-config.mjs`: public Web3Forms configuration used by the GitHub Pages build
+- `rsvp-config.mjs`: public Supabase endpoint and publishable key used by the GitHub Pages build
+- `supabase/`: database migrations and transactional access tests
+- `email/`: private Gmail Apps Script worker and setup notes
 
-Local development replies are saved in `data/rsvps.jsonl`. This directory is not publicly served. The development server binds to localhost. The GitHub Pages build sends replies to the existing Web3Forms connection used by `rishimaheshwari/prime-care-senior-services`. Google Fonts requires internet access; other assets are local.
+Local development replies are saved in `data/rsvps.jsonl`. This directory is not publicly served. The development server binds to localhost. GitHub Pages sends replies to the validated Supabase function; visitors cannot read or directly edit guest records. Google Fonts requires internet access; other assets are local.
 
 ## Verification
 
-JavaScript syntax and HTTP checks cover asset availability, video byte ranges, invalid RSVP rejection, successful local RSVP persistence, and private data isolation. Browser checks cover the door, English/Hindi switching, date reveal, local RSVP submission, and mobile overflow. Web3Forms browser tests intercept requests and simulate success, API rejection, and network failures; they do not send test emails or verify private dashboard records.
+Run `npm run check`, `npm test` and `npm run build`. Tests cover per-event counts, validation, normalized duplicate names, email recipient validation, stable request identities, escaped confirmation HTML, mail failures, delivery acknowledgement failures and exhausted quotas. Browser checks cover English/Hindi, mixed guest choices, party totals, mobile widths, sending feedback and retries with mocked requests. SQL tests in `supabase/tests/` check real writes and access rules inside rolled-back transactions; they leave no test guests or emails behind.
 
 ## GitHub Pages
 
 The `main` branch deploys automatically through `.github/workflows/pages.yml`.
-Run `npm run build` to generate `dist/`. Only public website files are included;
-RSVP records and the Node server are excluded. Relative asset paths support a
-GitHub Pages project URL. The static version submits directly from the visitor's
-browser to Web3Forms using the existing Prime Care form key. That key is a public
-submission identifier, not an administrative API secret.
+Run `npm run build` to generate `dist/`. Only public website files are included; database records, server, SQL and private worker code are excluded. Relative asset paths support the GitHub Pages project URL. The Supabase publishable key is a browser submission key, not an administrator secret. Never put a service-role key or Gmail worker secret in this site.
 
 ## Wedding submissions
 
-Replies use the subject `Nisha & Sajal Wedding RSVP`, the source field
-`nisha-sajal-wedding`, and an event field identifying January 30–31, 2027. They include
-the guest's name, attendance, additional guest count, total party size, and song request. They share
-the existing Web3Forms form, recipient, account quota, and retention settings with
-Prime Care. Access and export submissions in the existing Web3Forms dashboard;
-the wedding site never reads stored submissions. Account retention and delivery
-settings cannot be verified from the public submission key. If Trusted Domains
-are enabled, allow `rishimaheshwari.github.io` in that form's Web3Forms settings.
+One reply contains a contact email, one or more named guests, a Yes/No attendance answer and individual event choices for every guest, plus an optional song request. Additional attending guests and event totals are calculated automatically. Each attending guest must choose at least one event; declining guests have no selected events.
 
-The original Prime Care repository and its settings are unchanged.
+Supabase tables:
+
+- `nisha_sajal_rsvps`: party totals, contact email, request identity and email delivery status.
+- `nisha_sajal_rsvp_guests`: each named guest and their selected events.
+- `nisha_sajal_event_counts`: organizer-only event totals.
+- `nisha_sajal_email_worker`: private hashed credential for the Gmail worker.
+
+All tables have Row Level Security and no anonymous or authenticated visitor access. The public RPC validates the entire reply and writes it atomically. Replaying the same submission UUID and contents is safe; changed contents cannot overwrite an existing reply. The internal guest writer is private. Guest names are not globally unique.
+
+Organizers can review/export records through the project's Supabase dashboard. Confirmation emails use the private Google Apps Script in [email/README.md](email/README.md); no Gmail password is stored in this repository. The earlier Web3Forms integration is no longer used by this wedding site. The Prime Care repository and its form settings are unchanged.
 
 ## Event weekend
 
@@ -73,9 +74,7 @@ video. Only scene artwork and attire guidance were reused; its other couple's
 names, dates, locations and contact details are not included. Event slides use full-width artwork, native scroll snapping and slide-in effects
 with a reduced-motion fallback.
 
-The RSVP additional guest count excludes the person submitting. An attending
-response with 2 additional guests stores `plus_ones: 2` and `total_guests: 3`.
-Declining responses always store zero attendees. No dietary information is collected.
+The additional guest count excludes the first named guest. A party with three attending people stores `attending_guests: 3` and `additional_guests: 2`. A declining primary guest can still submit other guests who attend. No dietary information is collected.
 
 ## Full-screen slides and soundtrack
 
@@ -101,8 +100,7 @@ reduced-motion display.
 
 The button has hover, focus, pressed, and busy styles, with an accessible live
 status for sending, success, rejection, and uncertain delivery. A successful
-response stores an event-scoped SHA-256 name key in localStorage and includes
-`name_key` in the Web3Forms payload. Names use Unicode NFKC normalization,
+response stores event-scoped SHA-256 name keys for every guest in localStorage. Names use Unicode NFKC normalization,
 case folding via lowercase, trimmed edges and collapsed whitespace. Names and
 form answers are not kept in browser storage. Confirmation markers are written
 only after the provider acknowledges success; failed submissions remain retryable.
@@ -111,8 +109,7 @@ Web Locks serialize matching names across tabs where supported.
 As requested, this is **same-browser protection**, not a server uniqueness
 constraint. It covers confirmed replies submitted after this change. A different
 browser, cleared/blocked storage or private browsing can bypass it. Without Web
-Locks, simultaneous tabs are not serialized. The local server recomputes and
-records the same name key, but does not enforce database uniqueness.
+Locks, simultaneous tabs are not serialized. A stable request UUID also protects database writes against retries after a lost network response; it does not impose a global unique-name constraint.
 
 The venue now leads directly to the attendance form; the accommodation and
 registry sections have been removed.

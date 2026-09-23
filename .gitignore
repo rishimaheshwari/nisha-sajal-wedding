@@ -3,3 +3,7 @@ node_modules/
 .DS_Store
 dist/
 preview-*.png
+
+.env
+.env.*
+!.env.example

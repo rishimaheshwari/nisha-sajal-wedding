@@ -9,6 +9,8 @@ for (const file of [
   "app.js",
   "event-audio.js",
   "rsvp-identity.mjs",
+  "rsvp-model.mjs",
+  "rsvp.js",
   "styles.css",
   "enhancements.css",
   "translations.json",
