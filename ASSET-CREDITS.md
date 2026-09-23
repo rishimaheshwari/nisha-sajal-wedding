@@ -19,9 +19,9 @@ The older `assets/ns-monogram.svg` remains an unused archived asset. Its letter
 outlines used Great Vibes by Robert E. Leuschke, distributed under the SIL Open
 Font License: https://github.com/google/fonts/tree/main/ofl/greatvibes
 
-## Event instrumentals
+## Archived event instrumentals
 
-The Sangeet and wedding recordings are by Kevin MacLeod (https://incompetech.com), licensed
+The previously selected Sangeet and wedding recordings are by Kevin MacLeod (https://incompetech.com), licensed
 under Creative Commons Attribution 4.0:
 https://creativecommons.org/licenses/by/4.0/
 
@@ -30,28 +30,26 @@ https://creativecommons.org/licenses/by/4.0/
 - Wedding: **Canon in D for Two Harps**, ISRC USUAN2000015 — concert harps.
   https://incompetech.com/music/royalty-free/index.html?isrc=USUAN2000015
 
-Changes: The wedding uses 00:35–02:05 of
-Canon in D for Two Harps. Sangeet uses a 120-second excerpt beginning at 00:10. All use MP3 compression, volume normalization,
-fade-in and fade-out. The website crossfades between the excerpts as each event becomes
-active. A visible Music credits section in the footer provides attribution.
+Changes: The previous wedding selection uses 00:35–02:05 of
+Canon in D for Two Harps. The previous Sangeet selection uses a 120-second excerpt beginning at 00:10. All use MP3 compression, volume normalization,
+fade-in and fade-out. These recordings remain archived audition assets; they no longer play on the invitation. Attribution and source links are retained here.
 
-The original invitation doorway video, images, and opening soundtrack from the
-reference site are unchanged. The event illustrations are the previously
+The original invitation doorway video and images from the reference site are unchanged. The earlier opening soundtrack is retained as an unused asset. The event illustrations are the previously
 extracted frames from the video supplied by the user.
 
-## User-supplied Haldi and RSVP instrumentals
+## Active user-supplied instrumentals
 
 `assets/haldi-ve-kamleya.mp3` is prepared from the user-supplied
 `Ve Kamleya Instrumental.m4a`, received September 22, 2026. It contains the full
 34.97-second clip, with volume reduced by 11 dB, a 0.6-second fade-in and a
 1.2-second fade-out, encoded as a 128 kb/s stereo MP3. The player loops it in
-the Haldi section. It replaces Morning as the active Haldi track.
+the opening, scratch-date/confetti reveal and Haldi sections without restarting between them.
 
 `assets/rsvp-sajni-re.mp3` is prepared from the user-supplied
 `O Sajni Re Instrumental.mp3`, received September 22, 2026. It contains the full
 31.02-second clip, with volume reduced by 7 dB, a 0.6-second fade-in and a
 1.2-second fade-out, encoded as a 128 kb/s stereo MP3. The player loops it in
-the RSVP section and crossfades to and from the other section tracks.
+the Sangeet, wedding, venue, RSVP and footer sections without restarting between them. It crossfades with Ve Kamleya at the Haldi/Sangeet boundary.
 These recordings are separate from the Kevin MacLeod recordings above; no creator
 or license metadata was supplied with either file.
 
@@ -69,7 +67,7 @@ under Creative Commons Attribution 4.0:
 
 Changes: 30-second excerpts, volume normalization, fades and MP3 compression.
 The 84-second combined preview uses three-second linear crossfades. These are
-archived audition samples. Dream Culture is now the selected Sangeet track.
+archived audition samples.
 
 ## Longer flute and wedding audition
 
@@ -80,7 +78,7 @@ Creative Commons Attribution 4.0: https://creativecommons.org/licenses/by/4.0/
   https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1900005
 - **The Sky of our Ancestors**, ISRC USUAN1700056, 00:30–02:30 excerpt for Haldi.
   https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1700056
-- **Dream Culture**, ISRC USUAN1300046, 00:10–02:10 excerpt, selected for Sangeet.
+- **Dream Culture**, ISRC USUAN1300046, 00:10–02:10 excerpt, previously selected for Sangeet.
   https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1300046
 - **Morning**, ISRC USUAN2300003, 00:05–01:35 excerpt, previously selected for Haldi.
   https://incompetech.com/music/royalty-free/index.html?isrc=USUAN2300003
@@ -92,9 +90,7 @@ Creative Commons Attribution 4.0: https://creativecommons.org/licenses/by/4.0/
 Changes: excerpts, volume normalization, fade-in/out and MP3 compression. The
 129-second transition preview combines the first 45 seconds of the prepared
 River Flute, Dream Culture and Morning excerpts with three-second crossfades.
-The current 121.37-second `selected-soundtrack.mp3` preview combines the full
-Ve Kamleya clip with the first 45 seconds of the Dream Culture and Canon in D
-for Two Harps excerpts, with 1.8-second crossfades matching the live event player.
+The current approximately 64-second `selected-soundtrack.mp3` preview combines the full Ve Kamleya and O Sajni Re clips with a 1.8-second crossfade matching the live player.
 
 The archived `sangeet-music.mp3` remains a 75-second excerpt of **Naraina**, Kevin
 MacLeod, ISRC USUAN1400053, licensed under CC BY 4.0:

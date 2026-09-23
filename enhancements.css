@@ -397,6 +397,7 @@ footer,
   margin: 20px auto;
 }
 .event-story {
+  white-space: pre-line;
   font-family: "Cormorant Garamond", serif;
   font-size: 24px;
   font-style: italic;

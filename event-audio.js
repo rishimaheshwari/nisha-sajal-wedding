@@ -14,7 +14,7 @@ class EventSoundtrack {
     const configuredMusic = window.WEDDING_CONFIG?.backgroundMusic;
     this.backgroundMusic = configuredMusic?.src ? configuredMusic : null;
     this.welcomeAudio = new Audio(
-      this.backgroundMusic?.src || "./assets/music.mp3",
+      this.backgroundMusic?.src || "./assets/haldi-ve-kamleya.mp3",
     );
     this.welcomeAudio.loop = true;
     this.welcomeAudio.preload = "none";
@@ -49,12 +49,7 @@ class EventSoundtrack {
   }
   async buffer(scene) {
     if (!this.buffers.has(scene)) {
-      const filename = {
-        haldi: "haldi-ve-kamleya.mp3",
-        sangeet: "sangeet-dream-culture.mp3",
-        wedding: "sample-wedding-canon.mp3",
-        rsvp: "rsvp-sajni-re.mp3",
-      }[scene];
+      const filename = { sajni: "rsvp-sajni-re.mp3" }[scene];
       const promise = fetch(`./assets/${filename}`)
         .then((response) => {
           if (!response.ok) throw new Error("Audio unavailable");
@@ -95,8 +90,10 @@ class EventSoundtrack {
     if (this.voices.get(scene) === voice) this.voices.delete(scene);
   }
   async transition(scene) {
-    // A shared recording uses one media element and keeps its playback position.
-    const audioScene = this.backgroundMusic?.src ? "welcome" : scene;
+    // Keep one voice per recording so adjacent slides never restart the music.
+    const audioScene = this.backgroundMusic?.src || ["welcome", "haldi"].includes(scene)
+      ? "welcome"
+      : "sajni";
     const revision = ++this.revision;
     this.loading = true;
     this.failed = false;
@@ -132,7 +129,7 @@ class EventSoundtrack {
         return;
       }
       const duration = 1.8;
-      this.ramp(voice, audioScene === "welcome" ? 0.4 : 0.7, duration);
+      this.ramp(voice, this.backgroundMusic ? 0.4 : 0.7, duration);
       for (const [key, other] of this.voices) {
         if (key === audioScene) continue;
         clearTimeout(other.timer);
