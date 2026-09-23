@@ -124,4 +124,4 @@ The player defaults to the user-supplied O Sajni Re instrumental. `WEDDING_CONFI
 
 `assets/rsvp-sajni-re.mp3` preserves the full 31-second user-supplied clip with reduced volume and soft fades at the loop boundary. Ve Kamleya and the earlier two-song preview remain archived assets and are not used or requested by the invitation or soundtrack preview page.
 
-The Haldi, Sangeet and wedding slides include the user-provided two-line English verses with Hindi translations through the language toggle. Explicit line breaks are preserved in both languages.
+The Haldi, Sangeet and wedding slides include the user-provided two-line English verses with Hindi translations through the language toggle. Each verse line wraps independently into balanced, centered lines. Countdown labels use compact tracking and aligned numbers; event headings scale for narrow phones. Slides can grow on short screens so venue details stay clear of the bottom controls. English and Hindi layouts are checked from 320px through desktop widths.

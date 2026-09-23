@@ -31,7 +31,15 @@ languageButtons.forEach((button, index) =>
       node.textContent = translations[key][language];
     $$("[data-i18n]").forEach((el) => {
       const entry = translations[el.dataset.i18n];
-      if (entry) el.textContent = entry[language];
+      if (!entry) return;
+      if (el.classList.contains("event-story")) {
+        el.replaceChildren(...entry[language].split("\n").flatMap((line, index) => {
+          const verse = document.createElement("span");
+          verse.className = "event-verse-line";
+          verse.textContent = line;
+          return index ? [document.createTextNode("\n"), verse] : [verse];
+        }));
+      } else el.textContent = entry[language];
     });
     languageButtons.forEach((b, i) => {
       b.setAttribute("aria-pressed", String(index === i));

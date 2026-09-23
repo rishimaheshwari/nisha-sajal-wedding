@@ -181,7 +181,50 @@ html[lang="hi"] #rsvp-submit-btn {
   }
 }
 
-/* Full-screen event slides. */
+/* Keep the countdown optically centered without crowded tracking on phones. */
+#countdown > .reveal {
+  width: 100%;
+  text-align: center;
+}
+#countdown > .reveal > .eyebrow {
+  letter-spacing: 0.2em;
+  padding-inline-start: 0.2em;
+  line-height: 1.8;
+  text-wrap: balance;
+}
+.countdown-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(6px, 2vw, 10px);
+}
+.countdown-grid > .surface-card {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 3px;
+  text-align: center;
+}
+.countdown-grid .tabular-nums {
+  width: 100%;
+  font-size: clamp(28px, 8vw, 34px);
+  font-variant-numeric: lining-nums tabular-nums;
+  line-height: 1.1;
+}
+.countdown-grid .eyebrow {
+  width: 100%;
+  margin-top: 8px;
+  font-size: clamp(9px, 2.35vw, 10px);
+  letter-spacing: 0.08em;
+  padding-inline-start: 0.08em;
+  line-height: 1.3;
+}
+html[lang="hi"] #countdown .eyebrow {
+  letter-spacing: 0;
+  padding-inline-start: 0;
+}
+
+/* Full-screen event slides can grow when text needs more room. */
 html {
   scroll-behavior: smooth;
   scroll-snap-type: y proximity;
@@ -274,8 +317,8 @@ footer,
   --event-bg: #faf4e3;
   --slide-from: 5%;
   position: relative;
-  height: 100svh;
-  min-height: 660px;
+  height: auto;
+  min-height: max(660px, 100svh);
   display: grid;
   place-items: center;
   isolation: isolate;
@@ -339,7 +382,7 @@ footer,
   position: relative;
   width: min(580px, calc(100% - 64px));
   padding: 28px 54px;
-  margin: 22px auto 44px;
+  margin: 22px auto 72px;
   text-align: center;
   background: color-mix(in srgb, var(--event-bg) 88%, transparent);
   backdrop-filter: blur(7px);
@@ -382,6 +425,18 @@ footer,
   line-height: 1.1;
   margin: 13px 0 10px;
   color: var(--event-ink);
+  letter-spacing: 0;
+  text-wrap: balance;
+}
+.event-main,
+.event-details {
+  min-width: 0;
+  width: 100%;
+  text-align: center;
+}
+.event-copy :is(.event-when, .event-story, .event-lunch, .event-attire h4, .event-attire > p) {
+  text-align: center;
+  text-wrap: balance;
 }
 .event-when {
   font-family: "Cormorant Garamond", serif;
@@ -397,13 +452,17 @@ footer,
   margin: 20px auto;
 }
 .event-story {
-  white-space: pre-line;
+  white-space: normal;
   font-family: "Cormorant Garamond", serif;
   font-size: 24px;
   font-style: italic;
   line-height: 1.35;
   max-width: 400px;
   margin: 0 auto;
+}
+.event-verse-line {
+  display: block;
+  text-wrap: balance;
 }
 .event-lunch {
   margin-top: 12px;
@@ -427,8 +486,10 @@ footer,
   line-height: 1.7;
 }
 .event-location {
-  display: inline-flex;
+  display: inline-grid;
+  grid-template-columns: 1em minmax(0, 1fr) 1em;
   align-items: center;
+  max-width: 100%;
   gap: 9px;
   margin-top: 20px;
   font-size: 11px;
@@ -437,7 +498,10 @@ footer,
 }
 .event-location-copy {
   display: grid;
+  min-width: 0;
   gap: 4px;
+  text-align: center;
+  text-wrap: balance;
 }
 .event-room {
   font-size: 13px;
@@ -498,6 +562,11 @@ html[lang="hi"] .event-copy h3 {
 html[lang="hi"] .event-story {
   font-family: serif;
   font-size: 19px;
+  font-style: normal;
+  line-height: 1.55;
+}
+html[lang="hi"] .event-copy .eyebrow {
+  letter-spacing: 0;
 }
 #plus-ones-help {
   line-height: 1.6;
@@ -562,15 +631,15 @@ input:disabled {
 }
 @media (max-width: 640px) {
   .event-chapter {
-    min-height: 640px;
+    min-height: max(640px, 100svh);
   }
   .event-scene img {
     object-position: center;
   }
   .event-copy {
     width: calc(100% - 34px);
-    padding: 22px 25px 26px;
-    margin: 15px auto 45px;
+    padding: 22px clamp(18px, 5vw, 25px) 26px;
+    margin: 20px auto 72px;
     border-radius: 170px 170px 18px 18px;
     background: color-mix(in srgb, var(--event-bg) 87%, transparent);
   }
@@ -585,7 +654,7 @@ input:disabled {
     font-size: 15px;
   }
   .event-copy h3 {
-    font-size: 58px;
+    font-size: clamp(42px, 12.5vw, 58px);
     margin-top: 12px;
   }
   .event-when {
@@ -639,7 +708,7 @@ input:disabled {
     padding-bottom: 20px;
   }
   .event-copy h3 {
-    font-size: 54px;
+    font-size: clamp(42px, 12.5vw, 54px);
     margin: 10px 0 8px;
   }
   .event-rule {
