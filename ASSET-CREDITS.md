@@ -42,14 +42,13 @@ extracted frames from the video supplied by the user.
 `assets/haldi-ve-kamleya.mp3` is prepared from the user-supplied
 `Ve Kamleya Instrumental.m4a`, received September 22, 2026. It contains the full
 34.97-second clip, with volume reduced by 11 dB, a 0.6-second fade-in and a
-1.2-second fade-out, encoded as a 128 kb/s stereo MP3. The player loops it in
-the opening, scratch-date/confetti reveal and Haldi sections without restarting between them.
+1.2-second fade-out, encoded as a 128 kb/s stereo MP3. This is an archived recording; it no longer plays on the invitation or soundtrack preview page.
 
 `assets/rsvp-sajni-re.mp3` is prepared from the user-supplied
 `O Sajni Re Instrumental.mp3`, received September 22, 2026. It contains the full
 31.02-second clip, with volume reduced by 7 dB, a 0.6-second fade-in and a
 1.2-second fade-out, encoded as a 128 kb/s stereo MP3. The player loops it in
-the Sangeet, wedding, venue, RSVP and footer sections without restarting between them. It crossfades with Ve Kamleya at the Haldi/Sangeet boundary.
+all sections, including the opening, date reveal, Haldi, Sangeet, wedding, venue, RSVP and footer, without restarting between slides. This is the only active soundtrack.
 These recordings are separate from the Kevin MacLeod recordings above; no creator
 or license metadata was supplied with either file.
 
@@ -90,7 +89,7 @@ Creative Commons Attribution 4.0: https://creativecommons.org/licenses/by/4.0/
 Changes: excerpts, volume normalization, fade-in/out and MP3 compression. The
 129-second transition preview combines the first 45 seconds of the prepared
 River Flute, Dream Culture and Morning excerpts with three-second crossfades.
-The current approximately 64-second `selected-soundtrack.mp3` preview combines the full Ve Kamleya and O Sajni Re clips with a 1.8-second crossfade matching the live player.
+The archived approximately 64-second `selected-soundtrack.mp3` combines Ve Kamleya and O Sajni Re with a 1.8-second crossfade. It is no longer linked or played by the website.
 
 The archived `sangeet-music.mp3` remains a 75-second excerpt of **Naraina**, Kevin
 MacLeod, ISRC USUAN1400053, licensed under CC BY 4.0:

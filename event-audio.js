@@ -1,4 +1,4 @@
-// A user-enabled soundtrack with optional continuous playback across all scenes.
+// A user-enabled soundtrack that plays continuously across all scenes.
 // Event buffers play through the already-unlocked AudioContext on mobile.
 class EventSoundtrack {
   constructor(onChange) {
@@ -12,10 +12,10 @@ class EventSoundtrack {
     this.voices = new Map();
     this.buffers = new Map();
     const configuredMusic = window.WEDDING_CONFIG?.backgroundMusic;
-    this.backgroundMusic = configuredMusic?.src ? configuredMusic : null;
-    this.welcomeAudio = new Audio(
-      this.backgroundMusic?.src || "./assets/haldi-ve-kamleya.mp3",
-    );
+    this.backgroundMusic = configuredMusic?.src
+      ? configuredMusic
+      : { src: "./assets/rsvp-sajni-re.mp3" };
+    this.welcomeAudio = new Audio(this.backgroundMusic.src);
     this.welcomeAudio.loop = true;
     this.welcomeAudio.preload = "none";
   }
@@ -129,7 +129,7 @@ class EventSoundtrack {
         return;
       }
       const duration = 1.8;
-      this.ramp(voice, this.backgroundMusic ? 0.4 : 0.7, duration);
+      this.ramp(voice, 0.7, duration);
       for (const [key, other] of this.voices) {
         if (key === audioScene) continue;
         clearTimeout(other.timer);

@@ -68,7 +68,7 @@ Organizers can review/export records through the project's Supabase dashboard. C
 - January 30, 2027 in the evening: Sangeet at Clubhouse Ballroom — Western / Indo-Western.
 - January 31, 2027 in the morning: Wedding at Clubhouse — Royal Traditionals, followed by lunch.
 
-The original doorway video is unchanged. Its background soundtrack is now Ve Kamleya. Event illustrations are
+The original doorway video is unchanged. Its background soundtrack is O Sajni Re. Event illustrations are
 frames extracted at 23s, 31.5s and 42s from the user-supplied WhatsApp invitation
 video. Only scene artwork and attire guidance were reused; its other couple's
 names, dates, locations and contact details are not included. Event slides use full-width artwork, native scroll snapping and slide-in effects
@@ -85,7 +85,7 @@ keep all details accessible. Slide motion is disabled for reduced-motion users.
 
 `assets/sajni-monogram.png` contains the N–heart–S monogram from the supplied
 save-the-date invitation. It replaces the earlier vector monogram. `event-audio.js`
-manages a user-enabled soundtrack: Ve Kamleya for the opening, scratch-date/confetti reveal and Haldi; O Sajni Re for Sangeet, wedding, venue and RSVP. Music starts only after the invitation or music button is tapped. The same recording keeps its playback position across adjacent slides, with a 1.8-second crossfade when the song changes. Muting persists across scrolling. Ve Kamleya streams; O Sajni Re is decoded only when needed.
+plays O Sajni Re continuously throughout the opening, scratch-date/confetti reveal, Haldi, Sangeet, wedding, venue, RSVP and footer. Music starts only after the invitation or music button is tapped. One looping audio element preserves its playback position across scrolling and pause/resume. Muting persists across scrolling.
 Sources, licenses and modifications are documented in `ASSET-CREDITS.md` and
 credited in the page footer.
 
@@ -112,7 +112,7 @@ The venue now leads directly to the attendance form; the accommodation and
 registry sections have been removed.
 
 Lansdowne Resort names in the event slides and venue heading link to its official
-website in a new tab. `music-samples.html` displays the current two-song selection: Ve Kamleya (35 seconds) and O Sajni Re (31 seconds). The combined transition preview uses the full clips with a 1.8-second crossfade, matching the event player.
+website in a new tab. `music-samples.html` previews the selected 31-second O Sajni Re instrumental used throughout the invitation.
 
 ## #SajNi branding and continuous music
 
@@ -120,18 +120,8 @@ The supplied monogram appears on each event slide, the celebrations heading and
 footer, with `#SajNi` in the invitation, celebrations heading, RSVP and footer.
 The browser icon uses the supplied monogram too.
 
-The player supports one uninterrupted background recording across all sections
-when `WEDDING_CONFIG.backgroundMusic` contains `{ src, title }`. The same audio
-element and playback position persist through scrolling, pause and resume.
-Playback begins only after the guest opens the invitation or presses Play.
+The player defaults to the user-supplied O Sajni Re instrumental. `WEDDING_CONFIG.backgroundMusic` can override its `{ src, title }`. One audio element retains its playback position as guests move between slides or pause/resume. Playback begins only after the guest opens the invitation or presses Play.
 
-The user supplied `O Sajni Re Instrumental.mp3` and selected it for the RSVP
-section, later extending it to Sangeet and wedding. `assets/rsvp-sajni-re.mp3` preserves the full 31-second clip with reduced
-volume and soft fades at the loop boundary. It crossfades in when Sangeet reaches the middle of the viewport and continues through the wedding, venue, RSVP and footer. Scrolling back to Haldi returns to Ve Kamleya. The site uses these section tracks;
-the optional continuous-track configuration is not enabled.
-
-For Haldi, the user supplied `Ve Kamleya Instrumental.m4a`.
-`assets/haldi-ve-kamleya.mp3` preserves the full 35-second clip with reduced
-volume and soft loop fades. It plays continuously from the opening through the date reveal and Haldi, replacing the original opening soundtrack and Morning.
+`assets/rsvp-sajni-re.mp3` preserves the full 31-second user-supplied clip with reduced volume and soft fades at the loop boundary. Ve Kamleya and the earlier two-song preview remain archived assets and are not used or requested by the invitation or soundtrack preview page.
 
 The Haldi, Sangeet and wedding slides include the user-provided two-line English verses with Hindi translations through the language toggle. Explicit line breaks are preserved in both languages.
