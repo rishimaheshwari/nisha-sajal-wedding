@@ -32,10 +32,10 @@
       crossorigin="anonymous"
     />
     <link rel="icon" href="./assets/sajni-monogram.png" type="image/png" />
-    <link rel="stylesheet" href="./enhancements.css?v=compact-reveal" />
+    <link rel="stylesheet" href="./enhancements.css?v=family-contact" />
     <script src="./config.js" defer></script>
     <script src="./event-audio.js?v=sajni-continuous" defer></script>
-    <script src="./app.js?v=compact-reveal" defer></script>
+    <script src="./app.js?v=family-contact" defer></script>
     <script src="./rsvp.js?v=event-times" defer></script>
   </head>
   <body>
@@ -74,18 +74,7 @@
           "
         ></div>
         <div
-          class="absolute inset-0 z-30 transition-all duration-1000 translate-y-4 opacity-0"
-          style="
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding-left: 0;
-            padding-right: 0;
-            margin-top: 0;
-          "
+          class="hero-copy absolute inset-0 z-30 transition-all duration-1000 translate-y-4 opacity-0"
         >
           <h1
             class="script text-6xl sm:text-7xl"
@@ -109,6 +98,19 @@
           >
             Lansdowne · 2027
           </p>
+          <div class="hero-parents">
+            <p class="hero-parents-intro" data-i18n="parentsIntro">
+              Together with their parents
+            </p>
+            <p class="hero-parent-pair">
+              <span data-i18n="parentSatish">Mr. Satish Maheshwari</span>
+              <span data-i18n="parentAlka">&amp; Mrs. Alka Maheshwari</span>
+            </p>
+            <p class="hero-parent-pair">
+              <span data-i18n="parentSanjay">Dr. Sanjay Maheshwari</span>
+              <span data-i18n="parentSumita">&amp; Mrs. Sumita Maheshwari</span>
+            </p>
+          </div>
         </div>
         <button
           type="button"
@@ -472,6 +474,15 @@
             <p id="rsvp-status" class="rsvp-status" role="status" aria-live="polite" aria-atomic="true"></p>
             <p id="rsvp-note" class="text-xs text-muted-foreground"></p>
           </form>
+          <aside class="rsvp-help" aria-labelledby="rsvp-help-title">
+            <p data-i18n="plannerHelp">For any help, please contact</p>
+            <h3 id="rsvp-help-title">
+              <span lang="en" translate="no">Nistha</span>
+              <span aria-hidden="true"> · </span>
+              <span data-i18n="plannerRole">Wedding planner</span>
+            </h3>
+            <a class="rsvp-help-phone" href="tel:+14029993198" lang="en" translate="no">+1 (402) 999-3198</a>
+          </aside>
         </div>
       </section>
       <footer class="px-6 pb-14 text-center">
@@ -485,11 +496,6 @@
         <p class="script text-3xl text-aegean-deep">Nisha &amp; Sajal</p>
         <p class="wedding-hashtag" lang="en" translate="no">#SajNi</p>
         <p class="eyebrow mt-3">Lansdowne · 30–31 January 2027</p>
-        <details class="music-credits">
-          <summary data-i18n="musicCredits">Music credits</summary>
-          <p>O Sajni Re (instrumental) throughout the invitation.</p>
-          <p>A continuous instrumental with volume adjustment and soft loop fades.</p>
-        </details>
       </footer>
       <div class="fixed top-4 right-4 z-50">
         <div

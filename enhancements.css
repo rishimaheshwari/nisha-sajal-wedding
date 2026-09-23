@@ -143,6 +143,40 @@ button:disabled {
 .rsvp-confirmed-guest strong { color: #1e2a4f; font-size: 15px; }
 .rsvp-confirmed-guest p, .rsvp-confirmed-counts { color: #7a6e7e; font-size: 12px; line-height: 1.8; margin-top: 6px; }
 .rsvp-confirmed-counts { margin: 20px 0; }
+.rsvp-help {
+  margin-top: 36px;
+  padding-top: 28px;
+  border-top: 1px solid #b8902f66;
+  text-align: center;
+  color: #7a6e7e;
+  font-size: 14px;
+  line-height: 1.7;
+}
+.rsvp-help h3 {
+  margin-top: 10px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 24px;
+  color: #1e2a4f;
+  line-height: 1.4;
+  text-wrap: balance;
+}
+.rsvp-help-phone {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  margin-top: 4px;
+  padding: 4px 12px;
+  color: #1e2a4f;
+  font-size: 16px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  border-radius: 6px;
+}
+.rsvp-help-phone:hover,
+.rsvp-help-phone:focus-visible {
+  background: #efe7d9;
+}
 html[lang="hi"] .script {
   font-family: serif;
   line-height: 1.4;
@@ -179,6 +213,59 @@ html[lang="hi"] #rsvp-submit-btn {
     opacity: 1 !important;
     transform: none !important;
   }
+}
+
+/* Family names appear beneath the couple as the opening doors reveal. */
+.hero-copy {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 64px 20px 76px;
+  text-align: center;
+}
+.hero-copy h1 {
+  font-size: clamp(44px, 15.4vw, 72px);
+  line-height: 1.15;
+}
+.hero-parents {
+  width: 100%;
+  max-width: 780px;
+  display: grid;
+  gap: 10px;
+  margin-top: 28px;
+  color: #fff;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(19px, 3.8vw, 23px);
+  font-weight: 500;
+  line-height: 1.4;
+  text-shadow: 0 1px 5px #000, 0 2px 14px #0009;
+}
+.hero-parents-intro {
+  font-size: clamp(18px, 3.4vw, 21px);
+  letter-spacing: 0.025em;
+  text-wrap: balance;
+}
+.hero-parent-pair {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  column-gap: 0.3em;
+}
+.hero-parent-pair > span {
+  white-space: nowrap;
+}
+html[lang="hi"] .hero-parents {
+  font-family: serif;
+  font-size: clamp(16px, 3.4vw, 21px);
+  line-height: 1.65;
+}
+@media (max-height: 500px) {
+  .hero-copy { padding: 52px 20px 64px; }
+  .hero-copy h1 { font-size: 44px; }
+  .hero-copy > .eyebrow { margin-top: 10px; }
+  .hero-parents { gap: 6px; margin-top: 16px; font-size: 18px; }
 }
 
 /* One compact invitation slide: scratch the date, then count down to Haldi. */
@@ -608,25 +695,6 @@ input:disabled {
 .music-dock #music-toggle:focus-visible {
   background: #1e2a4f;
   color: #fff;
-}
-.music-credits {
-  margin: 24px auto 0;
-  max-width: 500px;
-  color: #7a6e7e;
-  font-size: 10px;
-  line-height: 1.7;
-}
-.music-credits summary {
-  cursor: pointer;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-.music-credits a {
-  text-decoration: underline;
-}
-.music-credits ul {
-  list-style: none;
-  margin: 8px 0;
 }
 @media (max-width: 640px) {
   .event-chapter {

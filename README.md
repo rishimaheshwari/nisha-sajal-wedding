@@ -14,11 +14,11 @@ Open http://localhost:5173. Set `PORT` to use another port.
 
 ## Features
 
-- Animated invitation doorway and background music toggle
+- Animated invitation doorway with the parents’ names beneath the couple and a background music toggle
 - English/Hindi text switch
 - A compact second slide with gold scratch circles and the countdown beneath, leading directly into Haldi; Enter/Space keyboard support for the scratch reveal
 - Countdown to the celebrations on January 30, 2027 at 11am in Virginia
-- Venue map link, event dress codes, and RSVP
+- Venue map link, event dress codes, RSVP and a tap-to-call wedding planner contact
 - Named party RSVPs, per-guest event choices, Supabase storage and Gmail confirmation emails
 - Scroll reveals, confetti, responsive layout, and reduced-motion support
 
@@ -86,8 +86,7 @@ keep all details accessible. Slide motion is disabled for reduced-motion users.
 `assets/sajni-monogram.png` contains the N–heart–S monogram from the supplied
 save-the-date invitation. It replaces the earlier vector monogram. `event-audio.js`
 plays O Sajni Re continuously throughout the opening, scratch-date/confetti reveal, Haldi, Sangeet, wedding, venue, RSVP and footer. Music starts only after the invitation or music button is tapped. One looping audio element preserves its playback position across scrolling and pause/resume. Muting persists across scrolling.
-Sources, licenses and modifications are documented in `ASSET-CREDITS.md` and
-credited in the page footer.
+Sources, licenses and modifications are documented in `ASSET-CREDITS.md`.
 
 Browser verification covers full-width layouts at desktop and mobile sizes,
 scroll snapping, actual audio decoding, crossfade cleanup, mute behavior, and

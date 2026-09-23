@@ -4,7 +4,7 @@ const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
 let language = "en";
 let translations = {};
 const textBindings = [];
-fetch("./translations.json?v=compact-reveal")
+fetch("./translations.json?v=family-contact")
   .then((r) => r.json())
   .then((data) => {
     translations = data;
@@ -182,6 +182,7 @@ doorButton.addEventListener("click", async () => {
     failed = true;
     $("img", hero).style.opacity = 1;
   }
+  const revealDelay = reducedMotion || failed ? 0 : 6000;
   setTimeout(
     () => {
       $$(".z-25, .z-30", hero).forEach((el) => {
@@ -189,7 +190,7 @@ doorButton.addEventListener("click", async () => {
         el.style.transform = "none";
       });
     },
-    reducedMotion || failed ? 0 : 6000,
+    revealDelay,
   );
   setTimeout(
     () => {
@@ -198,7 +199,7 @@ doorButton.addEventListener("click", async () => {
           behavior: reducedMotion ? "instant" : "smooth",
         });
     },
-    reducedMotion || failed ? 1200 : 11000,
+    revealDelay + 10000,
   );
 });
 const countdown = $("#countdown");
