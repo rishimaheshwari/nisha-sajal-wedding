@@ -76,14 +76,14 @@ function updateMusicLabel() {
     language === "hi"
       ? {
           welcome: "निमंत्रण",
-          haldi: "हल्दी · बाँसुरी",
+          haldi: "हल्दी · वे कमलेया",
           sangeet: "संगीत · पियानो",
           wedding: "विवाह · हार्प",
           rsvp: "उपस्थिति · ओ सजनी रे",
         }
       : {
           welcome: "Invitation",
-          haldi: "Haldi · Flutes",
+          haldi: "Haldi · Ve Kamleya",
           sangeet: "Sangeet · Piano",
           wedding: "Wedding · Harps",
           rsvp: "RSVP · O Sajni Re",

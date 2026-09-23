@@ -86,7 +86,7 @@ keep all details accessible. Slide motion is disabled for reduced-motion users.
 
 `assets/sajni-monogram.png` contains the N–heart–S monogram from the supplied
 save-the-date invitation. It replaces the earlier vector monogram. `event-audio.js`
-manages a user-enabled soundtrack: Morning for Haldi, Dream Culture for Sangeet,
+manages a user-enabled soundtrack: Ve Kamleya for Haldi, Dream Culture for Sangeet,
 Canon in D for Two Harps for the wedding, and O Sajni Re for RSVP. Music starts only after the invitation or music
 button is tapped, and uses 1.8-second crossfades. Muting persists across scrolling.
 Event audio is loaded only when needed; the original opening track streams.
@@ -119,11 +119,11 @@ registry sections have been removed.
 
 Lansdowne Resort names in the event slides and venue heading link to its official
 website in a new tab. `music-samples.html` displays the selected event tracks:
-Morning (90 seconds) for Haldi, Dream Culture (120 seconds) for Sangeet, and
+Ve Kamleya (35 seconds) for Haldi, Dream Culture (120 seconds) for Sangeet, and
 Canon in D for Two Harps (90 seconds) for the wedding. All three are active on
-the invitation. The combined 131.4-second preview uses 1.8-second crossfades,
-matching the event player. Each recording has visible attribution and a
-full-track link. The page also includes the 31-second O Sajni Re RSVP instrumental.
+the invitation. The combined 121.37-second preview uses 1.8-second crossfades,
+matching the event player. Kevin MacLeod recordings have visible attribution and
+full-track links. The page also includes the 31-second O Sajni Re RSVP instrumental.
 
 ## #SajNi branding and continuous music
 
@@ -142,3 +142,7 @@ volume and soft fades at the loop boundary. It crossfades in when RSVP reaches
 the middle of the viewport and continues through the footer. Scrolling back
 returns to the corresponding event music. The site uses these section tracks;
 the optional continuous-track configuration is not enabled.
+
+For Haldi, the user supplied `Ve Kamleya Instrumental.m4a`.
+`assets/haldi-ve-kamleya.mp3` preserves the full 35-second clip with reduced
+volume and soft loop fades, replacing Morning as the active Haldi track.

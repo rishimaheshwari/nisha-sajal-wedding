@@ -21,18 +21,16 @@ Font License: https://github.com/google/fonts/tree/main/ofl/greatvibes
 
 ## Event instrumentals
 
-All three recordings are by Kevin MacLeod (https://incompetech.com), licensed
+The Sangeet and wedding recordings are by Kevin MacLeod (https://incompetech.com), licensed
 under Creative Commons Attribution 4.0:
 https://creativecommons.org/licenses/by/4.0/
 
-- Haldi: **Morning**, ISRC USUAN2300003 — classical guitar, harp and flutes.
-  https://incompetech.com/music/royalty-free/index.html?isrc=USUAN2300003
 - Sangeet: **Dream Culture**, ISRC USUAN1300046 — piano and percussion.
   https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1300046
 - Wedding: **Canon in D for Two Harps**, ISRC USUAN2000015 — concert harps.
   https://incompetech.com/music/royalty-free/index.html?isrc=USUAN2000015
 
-Changes: Haldi uses 00:05–01:35 of Morning; the wedding uses 00:35–02:05 of
+Changes: The wedding uses 00:35–02:05 of
 Canon in D for Two Harps. Sangeet uses a 120-second excerpt beginning at 00:10. All use MP3 compression, volume normalization,
 fade-in and fade-out. The website crossfades between the excerpts as each event becomes
 active. A visible Music credits section in the footer provides attribution.
@@ -41,15 +39,21 @@ The original invitation doorway video, images, and opening soundtrack from the
 reference site are unchanged. The event illustrations are the previously
 extracted frames from the video supplied by the user.
 
-## RSVP instrumental
+## User-supplied Haldi and RSVP instrumentals
+
+`assets/haldi-ve-kamleya.mp3` is prepared from the user-supplied
+`Ve Kamleya Instrumental.m4a`, received September 22, 2026. It contains the full
+34.97-second clip, with volume reduced by 11 dB, a 0.6-second fade-in and a
+1.2-second fade-out, encoded as a 128 kb/s stereo MP3. The player loops it in
+the Haldi section. It replaces Morning as the active Haldi track.
 
 `assets/rsvp-sajni-re.mp3` is prepared from the user-supplied
 `O Sajni Re Instrumental.mp3`, received September 22, 2026. It contains the full
 31.02-second clip, with volume reduced by 7 dB, a 0.6-second fade-in and a
 1.2-second fade-out, encoded as a 128 kb/s stereo MP3. The player loops it in
 the RSVP section and crossfades to and from the other section tracks.
-This recording is separate from the Kevin MacLeod recordings above; no creator
-or license metadata was supplied with the file.
+These recordings are separate from the Kevin MacLeod recordings above; no creator
+or license metadata was supplied with either file.
 
 ## Optional soundtrack audition
 
@@ -78,7 +82,7 @@ Creative Commons Attribution 4.0: https://creativecommons.org/licenses/by/4.0/
   https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1700056
 - **Dream Culture**, ISRC USUAN1300046, 00:10–02:10 excerpt, selected for Sangeet.
   https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1300046
-- **Morning**, ISRC USUAN2300003, 00:05–01:35 excerpt, selected for Haldi.
+- **Morning**, ISRC USUAN2300003, 00:05–01:35 excerpt, previously selected for Haldi.
   https://incompetech.com/music/royalty-free/index.html?isrc=USUAN2300003
 - **Canon in D for Two Harps**, ISRC USUAN2000015, 00:35–02:05 wedding excerpt.
   https://incompetech.com/music/royalty-free/index.html?isrc=USUAN2000015
@@ -88,10 +92,9 @@ Creative Commons Attribution 4.0: https://creativecommons.org/licenses/by/4.0/
 Changes: excerpts, volume normalization, fade-in/out and MP3 compression. The
 129-second transition preview combines the first 45 seconds of the prepared
 River Flute, Dream Culture and Morning excerpts with three-second crossfades.
-The current 131.4-second `selected-soundtrack.mp3` preview combines the first
-45 seconds of Morning, Dream Culture and Canon in D for Two Harps excerpts,
-with 1.8-second crossfades matching the live event player. All three are selected
-for the invitation.
+The current 121.37-second `selected-soundtrack.mp3` preview combines the full
+Ve Kamleya clip with the first 45 seconds of the Dream Culture and Canon in D
+for Two Harps excerpts, with 1.8-second crossfades matching the live event player.
 
 The archived `sangeet-music.mp3` remains a 75-second excerpt of **Naraina**, Kevin
 MacLeod, ISRC USUAN1400053, licensed under CC BY 4.0:

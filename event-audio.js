@@ -50,7 +50,7 @@ class EventSoundtrack {
   async buffer(scene) {
     if (!this.buffers.has(scene)) {
       const filename = {
-        haldi: "sample-wedding-morning.mp3",
+        haldi: "haldi-ve-kamleya.mp3",
         sangeet: "sangeet-dream-culture.mp3",
         wedding: "sample-wedding-canon.mp3",
         rsvp: "rsvp-sajni-re.mp3",
