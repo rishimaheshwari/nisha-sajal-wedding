@@ -143,25 +143,28 @@ button:disabled {
 .rsvp-confirmed-guest strong { color: #1e2a4f; font-size: 15px; }
 .rsvp-confirmed-guest p, .rsvp-confirmed-counts { color: #7a6e7e; font-size: 12px; line-height: 1.8; margin-top: 6px; }
 .rsvp-confirmed-counts { margin: 20px 0; }
+#rsvp {
+  padding-bottom: 40px;
+}
 .rsvp-help {
-  margin-top: 36px;
-  padding-top: 28px;
+  margin-top: 20px;
+  padding-top: 16px;
   border-top: 1px solid #b8902f66;
   text-align: center;
   color: #7a6e7e;
   font-size: 14px;
-  line-height: 1.7;
+  line-height: 1.5;
 }
 .rsvp-help h3 {
-  margin-top: 10px;
+  margin-top: 4px;
   font-family: "Cormorant Garamond", serif;
   font-size: 24px;
   color: #1e2a4f;
-  line-height: 1.4;
+  line-height: 1.25;
   text-wrap: balance;
 }
 .rsvp-help-company {
-  margin: 6px 0 8px;
+  margin: 2px 0 0;
   color: #625866;
   font-size: 16px;
 }
