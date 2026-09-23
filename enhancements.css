@@ -160,21 +160,32 @@ button:disabled {
   line-height: 1.4;
   text-wrap: balance;
 }
-.rsvp-help-phone {
-  display: inline-flex;
+.rsvp-help-company {
+  margin: 6px 0 8px;
+  color: #625866;
+  font-size: 16px;
+}
+.rsvp-help-link {
+  display: flex;
+  width: fit-content;
+  max-width: 100%;
   align-items: center;
   justify-content: center;
   min-height: 44px;
-  margin-top: 4px;
-  padding: 4px 12px;
+  margin: 0 auto;
+  padding: 4px 8px;
   color: #1e2a4f;
   font-size: 16px;
   text-decoration: underline;
   text-underline-offset: 4px;
   border-radius: 6px;
 }
-.rsvp-help-phone:hover,
-.rsvp-help-phone:focus-visible {
+.rsvp-help-email {
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+.rsvp-help-link:hover,
+.rsvp-help-link:focus-visible {
   background: #efe7d9;
 }
 html[lang="hi"] .script {
