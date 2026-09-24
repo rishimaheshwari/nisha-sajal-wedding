@@ -212,8 +212,8 @@
     "hi": "दो दिल मिलें और सात वचनों से बँधें,\nआइए, नए अध्याय की शुरुआत में हमारे संग चलें।"
   },
   "followedByLunch": {
-    "en": "Wedding ceremony followed by lunch",
-    "hi": "विवाह समारोह के बाद दोपहर का भोजन"
+    "en": "Followed by LUNCH",
+    "hi": "इसके बाद दोपहर का भोजन"
   },
   "whatToWear": {
     "en": "What to wear",
@@ -276,8 +276,8 @@
     "hi": "क्लबहाउस बॉलरूम"
   },
   "weddingRoom": {
-    "en": "Clubhouse",
-    "hi": "क्लबहाउस"
+    "en": "Grand Ballroom",
+    "hi": "ग्रैंड बॉलरूम"
   },
   "parentsIntro": {
     "en": "Together with their parents",

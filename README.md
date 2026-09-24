@@ -18,7 +18,7 @@ Open http://localhost:5173. Set `PORT` to use another port.
 - English/Hindi text switch
 - A compact second slide with gold scratch circles and the countdown beneath, leading directly into Haldi; Enter/Space keyboard support for the scratch reveal
 - Countdown to the celebrations on January 30, 2027 at 11am in Virginia
-- Venue map link, event dress codes, RSVP and a tap-to-call wedding planner contact
+- Venue map link, event dress codes, RSVP and the wedding planner’s company and email contact
 - Named party RSVPs, per-guest event choices, Supabase storage and Gmail confirmation emails
 - Scroll reveals, confetti, responsive layout, and reduced-motion support
 
@@ -66,7 +66,7 @@ Organizers can review/export records through the project's Supabase dashboard. C
 
 - January 30, 2027 at 11am: Haldi at Terrace Ballroom — Indian / Indo-Western.
 - January 30, 2027 from 6pm onwards: Sangeet at Clubhouse Ballroom — Western / Indo-Western.
-- January 31, 2027 at 10am: Wedding at Clubhouse — Royal Traditionals, followed by lunch.
+- January 31, 2027 at 10am: Wedding at Grand Ballroom — Royal Traditionals, followed by lunch.
 
 The original doorway video is unchanged. Its background soundtrack is O Sajni Re. Event illustrations are
 frames extracted at 23s, 31.5s and 42s from the user-supplied WhatsApp invitation

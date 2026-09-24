@@ -81,7 +81,7 @@ function weddingConfirmation_(job) {
   var events = {
     haldi: { title: 'Haldi', date: 'Saturday, January 30, 2027 · 11am', location: 'Terrace Ballroom', attire: 'Indian / Indo-Western' },
     sangeet: { title: 'Sangeet', date: 'Saturday, January 30, 2027 · 6pm onwards', location: 'Clubhouse Ballroom', attire: 'Western / Indo-Western' },
-    wedding: { title: 'Wedding & lunch', date: 'Sunday, January 31, 2027 · 10am, followed by lunch', location: 'Clubhouse', attire: 'Royal Traditionals' },
+    wedding: { title: 'Wedding & lunch', date: 'Sunday, January 31, 2027 · 10am, followed by lunch', location: 'Grand Ballroom', attire: 'Royal Traditionals' },
   };
   var rows = job.guests.map(function(guest) {
     var choices = guest.attending ? guest.events.map(function(id) { return events[id].title; }).join(' · ') : 'Unable to attend';

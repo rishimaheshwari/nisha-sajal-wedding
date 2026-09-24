@@ -17,7 +17,7 @@ function worker({quota=100, failSend=false, failMark=false}={}) {
 test('confirmation includes escaped names, each guest choice and correct event locations',()=>{
  const {context}=worker();const message=context.weddingConfirmation_(job);
  assert.match(message.html,/&lt;Guest &amp; One&gt;/);assert.doesNotMatch(message.html,/<Guest & One>/);
- for(const label of ['Unable to attend','Haldi','Wedding &amp; lunch','Terrace Ballroom','Clubhouse Ballroom','January 31, 2027','#SajNi'])assert.ok(message.html.includes(label),label);
+ for(const label of ['Unable to attend','Haldi','Wedding &amp; lunch','Terrace Ballroom','Clubhouse Ballroom','Grand Ballroom','January 31, 2027','#SajNi'])assert.ok(message.html.includes(label),label);
  assert.match(message.text,/Guest Two: Unable to attend/);
 });
 test('sends one message and records completion',()=>{
