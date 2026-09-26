@@ -543,6 +543,15 @@ footer {
   font-size: 22px;
   line-height: 1.4;
 }
+.event-schedule {
+  display: grid;
+  gap: 4px;
+  margin-top: 12px;
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: center;
+  text-wrap: balance;
+}
 .event-rule {
   display: block;
   width: 50px;
@@ -579,6 +588,14 @@ footer {
   font-weight: 500;
   font-size: 24px;
   margin: 8px 0 5px;
+}
+.event-attire h4.event-attire-lines {
+  font-size: clamp(20px, 4.5vw, 24px);
+  line-height: 1.35;
+}
+.event-attire-lines > span {
+  display: block;
+  text-wrap: balance;
 }
 .event-attire > p:last-child {
   color: var(--event-muted);

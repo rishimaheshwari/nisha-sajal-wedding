@@ -32,11 +32,11 @@
       crossorigin="anonymous"
     />
     <link rel="icon" href="./assets/sajni-monogram.png" type="image/png" />
-    <link rel="stylesheet" href="./enhancements.css?v=compact-planner" />
+    <link rel="stylesheet" href="./enhancements.css?v=sangeet-details" />
     <script src="./config.js" defer></script>
     <script src="./event-audio.js?v=sajni-continuous" defer></script>
-    <script src="./app.js?v=grand-ballroom" defer></script>
-    <script src="./rsvp.js?v=grand-ballroom" defer></script>
+    <script src="./app.js?v=sangeet-details" defer></script>
+    <script src="./rsvp.js?v=sangeet-details" defer></script>
   </head>
   <body>
     <main class="relative min-h-screen bg-background">
@@ -329,8 +329,12 @@
               <p class="eyebrow" data-i18n="dayOneLabel">Day One · Saturday</p>
               <h3 id="sangeet-title" data-i18n="sangeet">Sangeet</h3>
               <p class="event-when" data-i18n="sangeetWhen">
-                January 30, 2027 · 6pm onwards
+                January 30, 2027
               </p>
+              <div class="event-schedule">
+                <p data-i18n="sangeetCocktailHour">6–7pm: Cocktail hour</p>
+                <p data-i18n="sangeetDinner">7pm onwards: Dinner</p>
+              </div>
               <span class="event-rule" aria-hidden="true"></span>
               <p class="event-story" data-i18n="sangeetStory"><span class="event-verse-line">In the rhythm of music and light,</span>
 <span class="event-verse-line">Let’s dance our hearts through the night.</span></p>
@@ -338,11 +342,10 @@
             <div class="event-details">
               <div class="event-attire">
                 <p class="eyebrow" data-i18n="whatToWear">What to wear</p>
-                <h4 data-i18n="sangeetAttire">Western / Indo-Western</h4>
-                <p data-i18n="sangeetOutfitNote">
-                  Dress up in Western or Indo-Western eveningwear and bring your
-                  dancing shoes.
-                </p>
+                <h4 class="event-attire-lines">
+                  <span data-i18n="sangeetAttireMen">Men: Formal</span>
+                  <span data-i18n="sangeetAttireWomen">Women: Indo-Western / Traditional</span>
+                </h4>
               </div>
               <a class="event-location" href="https://lansdowneresort.com/" target="_blank" rel="noopener noreferrer"
                 ><span aria-hidden="true">⌖</span>

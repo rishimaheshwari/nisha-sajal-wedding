@@ -65,7 +65,7 @@ Organizers can review/export records through the project's Supabase dashboard. C
 ## Event weekend
 
 - January 30, 2027 at 11am: Haldi at Terrace Ballroom — Indian / Indo-Western.
-- January 30, 2027 from 6pm onwards: Sangeet at Clubhouse Ballroom — Western / Indo-Western.
+- January 30, 2027: Sangeet at Clubhouse Ballroom — 6–7pm cocktail hour, dinner from 7pm onwards. Men: Formal; Women: Indo-Western / Traditional.
 - January 31, 2027 at 10am: Wedding at Grand Ballroom — Royal Traditionals, followed by lunch.
 
 The original doorway video is unchanged. Its background soundtrack is O Sajni Re. Event illustrations are

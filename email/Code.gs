@@ -80,7 +80,7 @@ function escapeWeddingHtml_(value) {
 function weddingConfirmation_(job) {
   var events = {
     haldi: { title: 'Haldi', date: 'Saturday, January 30, 2027 · 11am', location: 'Terrace Ballroom', attire: 'Indian / Indo-Western' },
-    sangeet: { title: 'Sangeet', date: 'Saturday, January 30, 2027 · 6pm onwards', location: 'Clubhouse Ballroom', attire: 'Western / Indo-Western' },
+    sangeet: { title: 'Sangeet', date: 'Saturday, January 30, 2027 · 6–7pm: Cocktail hour; 7pm onwards: Dinner', location: 'Clubhouse Ballroom', attire: 'Men: Formal; Women: Indo-Western / Traditional' },
     wedding: { title: 'Wedding & lunch', date: 'Sunday, January 31, 2027 · 10am, followed by lunch', location: 'Grand Ballroom', attire: 'Royal Traditionals' },
   };
   var rows = job.guests.map(function(guest) {

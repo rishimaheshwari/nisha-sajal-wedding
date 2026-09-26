@@ -192,8 +192,8 @@
     "hi": "३० जनवरी, २०२७ · सुबह ११ बजे"
   },
   "sangeetWhen": {
-    "en": "January 30, 2027 · 6pm onwards",
-    "hi": "३० जनवरी, २०२७ · शाम ६ बजे से"
+    "en": "January 30, 2027",
+    "hi": "३० जनवरी, २०२७"
   },
   "weddingWhen": {
     "en": "January 31, 2027 · 10am",
@@ -223,10 +223,6 @@
     "en": "Indian / Indo-Western",
     "hi": "भारतीय / इंडो-वेस्टर्न"
   },
-  "sangeetAttire": {
-    "en": "Western / Indo-Western",
-    "hi": "वेस्टर्न / इंडो-वेस्टर्न"
-  },
   "weddingAttire": {
     "en": "Royal Traditionals",
     "hi": "शाही पारंपरिक परिधान"
@@ -234,10 +230,6 @@
   "haldiOutfitNote": {
     "en": "Bright Indo-Western outfits for an afternoon of celebration",
     "hi": "दोपहर के उत्सव के लिए रंगीन इंडो-वेस्टर्न परिधान।"
-  },
-  "sangeetOutfitNote": {
-    "en": "Dress up in Western or Indo-Western eveningwear and bring your dancing shoes.",
-    "hi": "वेस्टर्न या इंडो-वेस्टर्न परिधान पहनें और नृत्य के लिए तैयार रहें।"
   },
   "weddingOutfitNote": {
     "en": "Celebrate with us in your finest traditional wedding attire.",
@@ -306,5 +298,21 @@
   "plannerRole": {
     "en": "Wedding planner",
     "hi": "वेडिंग प्लानर"
+  },
+  "sangeetCocktailHour": {
+    "en": "6–7pm: Cocktail hour",
+    "hi": "शाम ६–७ बजे: कॉकटेल आवर"
+  },
+  "sangeetDinner": {
+    "en": "7pm onwards: Dinner",
+    "hi": "शाम ७ बजे से: रात्रि भोज"
+  },
+  "sangeetAttireMen": {
+    "en": "Men: Formal",
+    "hi": "पुरुष: फ़ॉर्मल परिधान"
+  },
+  "sangeetAttireWomen": {
+    "en": "Women: Indo-Western / Traditional",
+    "hi": "महिलाएँ: इंडो-वेस्टर्न / पारंपरिक परिधान"
   }
 }
